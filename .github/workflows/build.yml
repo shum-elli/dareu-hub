@@ -1,0 +1,37 @@
+name: Build
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Offline protocol checks
+        run: dotnet run --project Probe/Probe.csproj -c Release -- --self-test
+      - name: Publish Slim
+        run: dotnet publish App/DareuLocal.App.csproj -c Release -p:Platform=x64 -p:PublishProfile=Slim -o publish/slim
+      - name: Publish Portable
+        run: dotnet publish App/DareuLocal.App.csproj -c Release -p:Platform=x64 -p:PublishProfile=Portable -o publish/portable
+      - name: Include notices
+        shell: pwsh
+        run: |
+          foreach ($package in @('slim','portable')) {
+            Copy-Item README.md,LICENSE,THIRD_PARTY_NOTICES.md,SUPPORTED-DEVICES.md "publish/$package/"
+          }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DareuLocal-slim-win-x64
+          path: publish/slim/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DareuLocal-portable-win-x64
+          path: publish/portable/

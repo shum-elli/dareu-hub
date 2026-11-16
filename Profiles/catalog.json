@@ -1,0 +1,8991 @@
+[
+  {
+    "Pid": 48,
+    "Name": "Z82",
+    "Model": "TK51A",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 85,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51A",
+      "TK51ARGB"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 55,
+    "Name": "USB 2.4G Receiver",
+    "Model": "Dongle",
+    "Type": 2,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 66,
+    "Name": "USB 2.4G Receiver",
+    "Model": "Dongle",
+    "Type": 2,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 67,
+    "Name": "A104",
+    "Model": "TK51QU",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 104,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 69,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 81,
+    "Name": "A98",
+    "Model": "TK51V",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51V",
+      "TK51V0136",
+      "TK51VF0156",
+      "TK51VF0178"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 86,
+    "Name": "A87 PRO",
+    "Model": "TK51CU",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 96,
+    "Name": "EK87 PRO",
+    "Model": "TK51CF",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CF",
+      "TK51CF0153"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 103,
+    "Name": "CK98 PRO RT",
+    "Model": "TK51WU",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 100,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 112,
+    "Name": "Z82 PRO",
+    "Model": "TK51ARGB",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 85,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51ARGB"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 116,
+    "Name": "EK106 PRO",
+    "Model": "TK51QF",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 106,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 117,
+    "Name": "EK106 RT 8K",
+    "Model": "TK51QRT8K",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 106,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QRT8K",
+      "TK51QRT8K0160"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 120,
+    "Name": "A75 PRO",
+    "Model": "TK52L",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52L",
+      "TK52L0078",
+      "TK52L0145",
+      "TK52LV2"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 129,
+    "Name": "EK87 RT 8K",
+    "Model": "TK51CU",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 131,
+    "Name": "A75 HE",
+    "Model": "TK52L",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52L",
+      "TK52L0078",
+      "TK52L0145",
+      "TK52LV2"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 144,
+    "Name": "EK106 PRO 8K",
+    "Model": "TK51QU",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 106,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 145,
+    "Name": "EK87 PRO 8K",
+    "Model": "TK51CU",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 146,
+    "Name": "EK815 PRO",
+    "Model": "TK52K",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 100,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52K",
+      "TK52K0116"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 257,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 259,
+    "Name": "CK87 MAX",
+    "Model": "TK52U",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 261,
+    "Name": "EK87RT WP",
+    "Model": "TK51CU",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 262,
+    "Name": "EK108 RT",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 108,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 263,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 274,
+    "Name": "USB 2.4G Receiver",
+    "Model": "Dongle",
+    "Type": 2,
+    "FirmwareType": 7,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 275,
+    "Name": "VICTOR HE",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 277,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 279,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 281,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 291,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 292,
+    "Name": "CK75 PRO",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 294,
+    "Name": "影刃",
+    "Model": "TK52W",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 68,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 295,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 297,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 305,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 306,
+    "Name": "EK75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 310,
+    "Name": "A98 RT",
+    "Model": "TK51V",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51V",
+      "TK51V0136",
+      "TK51VF0156",
+      "TK51VF0178"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 311,
+    "Name": "A104 Master  8K",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 104,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 312,
+    "Name": "A87 Master 8K",
+    "Model": "TK51CU",
+    "Type": 1,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 84,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 313,
+    "Name": "CK100",
+    "Model": "TK51N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 99,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 320,
+    "Name": "CK98 MAX",
+    "Model": "TK50TRT",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 325,
+    "Name": "A75 HE",
+    "Model": "TK52L",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52L",
+      "TK52L0078",
+      "TK52L0145",
+      "TK52LV2"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 326,
+    "Name": "USB 2.4G Receiver",
+    "Model": "TK51Q",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 336,
+    "Name": "EK81 MAX",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 338,
+    "Name": "CK75 PRO",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 83,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 345,
+    "Name": "EK87 RT 8K",
+    "Model": "TK51C",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51C0138",
+      "TK51CF",
+      "TK51CF0153",
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 352,
+    "Name": "EK106 RT 8K",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 106,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 353,
+    "Name": "COOL 98",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 354,
+    "Name": "CK75 08G",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 355,
+    "Name": "DK108 PRO",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 108,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 356,
+    "Name": "CK100",
+    "Model": "TK51N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 99,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 357,
+    "Name": "CK98 MAX",
+    "Model": "TK50TRT",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 358,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 359,
+    "Name": "DK87 PRO",
+    "Model": "TK529",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK529"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 361,
+    "Name": "CK87 MAX",
+    "Model": "TK52U",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 372,
+    "Name": "CK75 PRO",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 80,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 373,
+    "Name": "A68",
+    "Model": "TK53H",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 68,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK53HRT"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 376,
+    "Name": "FK98",
+    "Model": "TK51V",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51V",
+      "TK51V0136",
+      "TK51VF0156",
+      "TK51VF0178"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 377,
+    "Name": "EK108 RT",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 108,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 384,
+    "Name": "EK87RT WP",
+    "Model": "TK51C",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51C0138",
+      "TK51CF",
+      "TK51CF0153",
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 391,
+    "Name": "CK75 PRO",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 80,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 392,
+    "Name": "猎光75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 80,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 401,
+    "Name": "COOL 98",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 402,
+    "Name": "CK75 PRO",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 80,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 403,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 404,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 405,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 406,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 408,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 409,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 513,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 514,
+    "Name": "FLEX 75",
+    "Model": "TK53N",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 82,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK53N"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 517,
+    "Name": "CK100",
+    "Model": "TK51N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 99,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 518,
+    "Name": "A104PRO8K V2",
+    "Model": "TK51QU",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": true,
+    "ButtonCount": 0,
+    "KeyCount": 104,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 520,
+    "Name": "CK98 MAX",
+    "Model": "TK50TRT",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 521,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 528,
+    "Name": "FLEX 87",
+    "Model": "TK53P",
+    "Type": 1,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 529,
+    "Name": "USB 2.4G Receiver",
+    "Model": "Dongle",
+    "Type": 2,
+    "FirmwareType": 1,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 532,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 534,
+    "Name": "CK98 Ultra",
+    "Model": "TK52Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 97,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52Q",
+      "TK52QRT0166"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 547,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 548,
+    "Name": "CK100",
+    "Model": "TK51N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 99,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 553,
+    "Name": "COOL 60 / EK60 HE",
+    "Model": "TK599",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 61,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK599RT",
+      "TK599RT0117",
+      "TK599RT0123"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 560,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 562,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 563,
+    "Name": "Flex 98",
+    "Model": "TK53M",
+    "Type": 1,
+    "FirmwareType": 1,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 98,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 564,
+    "Name": "FLEX 75",
+    "Model": "TK53N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK53N"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 566,
+    "Name": "影刃75",
+    "Model": "TK53Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 567,
+    "Name": "EK87RT WP",
+    "Model": "TK51C",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51C0138",
+      "TK51CF",
+      "TK51CF0153",
+      "TK51CU",
+      "TK51CU0091",
+      "TK51CURT0081",
+      "TK51CURT0159"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 568,
+    "Name": "EK108 RT",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 108,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 569,
+    "Name": "猎光75",
+    "Model": "TK51G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 80,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51G",
+      "TK51GF",
+      "TK51GF0154",
+      "TK51GRT0115",
+      "TK51GU",
+      "TK51GU8K",
+      "TK51GU8K_HY",
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 577,
+    "Name": "CK87 MAX",
+    "Model": "TK52U",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 580,
+    "Name": "冰刃75",
+    "Model": "TK53V",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 582,
+    "Name": "锋刃 75",
+    "Model": "TK50G",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 84,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 585,
+    "Name": "CK75",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 81,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D",
+      "TK51D_0150",
+      "TK51D_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 594,
+    "Name": "CK108 HE",
+    "Model": "TK51Q",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 108,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51Q0137",
+      "TK51QF",
+      "TK51QF0155",
+      "TK51QF0163",
+      "TK51QRT0094",
+      "TK51QRT0106",
+      "TK51QRT0179",
+      "TK51QRT8K",
+      "TK51QRT8K0160",
+      "TK51QU",
+      "TK51QU0090",
+      "TK51QU0206"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 595,
+    "Name": "CK87 MAX",
+    "Model": "TK52U",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 87,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 609,
+    "Name": "FLEX 75",
+    "Model": "TK53N",
+    "Type": 1,
+    "FirmwareType": 6,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": true,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 79,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK53N"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        1000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4165,
+    "Name": "A980",
+    "Model": "TM238",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 11,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM238",
+      "TM238U"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4212,
+    "Name": "2.4G Receiver",
+    "Model": "TM243FDongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4226,
+    "Name": "CM610 PRO",
+    "Model": "TM243",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM243F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4228,
+    "Name": "A950",
+    "Model": "TM243F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM243F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4359,
+    "Name": "EM903",
+    "Model": "TM230G",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 8000,
+    "SensorModel": 3104,
+    "DpiStep": 100,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM230G"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4360,
+    "Name": "2.4G Receiver",
+    "Model": "TM230GDongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4370,
+    "Name": "A950 PRO",
+    "Model": "TM265",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265",
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286",
+      "TM265KR",
+      "TM265UHT",
+      "TM265UHT_8K",
+      "TM265UHT_AIM"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4372,
+    "Name": "2.4G Receiver",
+    "Model": "TM265Dongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4373,
+    "Name": "2.4G Receiver",
+    "Model": "TM265Dongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4375,
+    "Name": "A950 PRO Mg",
+    "Model": "TM271F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM271F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4376,
+    "Name": "A950G",
+    "Model": "TM265KR",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265KR"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4393,
+    "Name": "A980 PRO MAX",
+    "Model": "TM270LCD",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM270LCD"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4400,
+    "Name": "A980 PRO",
+    "Model": "TM270",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM270",
+      "TM270F",
+      "TM270F_1212",
+      "TM270LCD",
+      "TM270V2",
+      "TM270V2LCD"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4401,
+    "Name": "Wireless Dongle",
+    "Model": "TM270FDongle",
+    "Type": 2,
+    "FirmwareType": 1,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4404,
+    "Name": "CM610 PRO",
+    "Model": "TM243F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM243F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4405,
+    "Name": "2.4G Receiver",
+    "Model": "TM243FDongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4406,
+    "Name": "CM670 PRO",
+    "Model": "TM242F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM242F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4417,
+    "Name": "CM610 V2",
+    "Model": "TM265U",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265UHT",
+      "TM265UHT_8K",
+      "TM265UHT_AIM"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4423,
+    "Name": "A950 AIR",
+    "Model": "TM275F",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275F",
+      "TM275FKR",
+      "TM275FV2",
+      "TM275F_1262"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4424,
+    "Name": "A980 PRO",
+    "Model": "TM270FAIM",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4432,
+    "Name": "A980 PRO MAX",
+    "Model": "TM270FAIMLCD",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4433,
+    "Name": "A980 PRO MAX",
+    "Model": "TM270FAIMLCD",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4434,
+    "Name": "CM610 V2",
+    "Model": "TM265U",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265UHT",
+      "TM265UHT_8K",
+      "TM265UHT_AIM"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4435,
+    "Name": "A950 PRO Mg",
+    "Model": "TM271F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM271F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4436,
+    "Name": "2.4G Receiver",
+    "Model": "TM275DGDongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4437,
+    "Name": "CM610 MAX",
+    "Model": "TM243G",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4438,
+    "Name": "2.4G Receiver",
+    "Model": "TM265D",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4441,
+    "Name": "CM610 V2",
+    "Model": "TM265U",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 7,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265UHT",
+      "TM265UHT_8K",
+      "TM265UHT_AIM"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4451,
+    "Name": "2.4G Receiver",
+    "Model": "TM290",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4453,
+    "Name": "CM610 V2 MAX",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4454,
+    "Name": "A980 PRO",
+    "Model": "TM270F",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM270F",
+      "TM270F_1212"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4456,
+    "Name": "CM610 MAX",
+    "Model": "TM243F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 100,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM243F"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4457,
+    "Name": "A950 AIR",
+    "Model": "TM275F",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275F",
+      "TM275FKR",
+      "TM275FV2",
+      "TM275F_1262"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ],
+      [
+        1,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ],
+      [
+        2,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4468,
+    "Name": "A950 AIR",
+    "Model": "TM275F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275F",
+      "TM275FKR",
+      "TM275FV2",
+      "TM275F_1262"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4469,
+    "Name": "2.4G Receiver",
+    "Model": "TM275FGDongle",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4481,
+    "Name": "CM610 V2 MAX",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4482,
+    "Name": "A950 LCD",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4485,
+    "Name": "A950 AIR",
+    "Model": "TM275D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275D",
+      "TM275D07G08G",
+      "TM275DKR"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4499,
+    "Name": "A950 AIR",
+    "Model": "TM275D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275D",
+      "TM275D07G08G",
+      "TM275DKR"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4502,
+    "Name": "A950 Wing",
+    "Model": "TM275D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275D",
+      "TM275D07G08G",
+      "TM275DKR"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4631,
+    "Name": "A950 Ultra",
+    "Model": "TM283",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM283"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4632,
+    "Name": "极风",
+    "Model": "TM290D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4633,
+    "Name": "2.4G Receiver",
+    "Model": "TM2XX",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4640,
+    "Name": "羽翼",
+    "Model": "TM287D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4646,
+    "Name": "AE6",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4647,
+    "Name": "2.4G Receiver",
+    "Model": "TM290F",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4659,
+    "Name": "AE6 PRO",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4661,
+    "Name": "AE7 PRO",
+    "Model": "TM287F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM287F08003G",
+      "TM287F_1250",
+      "TM287F_1250_3955"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4663,
+    "Name": "极风Max",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4664,
+    "Name": "2.4G Receiver",
+    "Model": "TM290F",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4676,
+    "Name": "A950 GM",
+    "Model": "TM265F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 50,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4677,
+    "Name": "A950GD",
+    "Model": "TM265",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 50,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 4,
+    "NativeModules": [
+      "TM265",
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286",
+      "TM265KR",
+      "TM265UHT",
+      "TM265UHT_8K",
+      "TM265UHT_AIM"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4678,
+    "Name": "2.4G Receiver",
+    "Model": "TM01AF",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4688,
+    "Name": "AE7",
+    "Model": "TM287",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM287F08003G",
+      "TM287F_1250",
+      "TM287F_1250_3955",
+      "TM287_1235"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4695,
+    "Name": "2.4G Receiver",
+    "Model": "TM287",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM287F08003G",
+      "TM287F_1250",
+      "TM287F_1250_3955",
+      "TM287_1235"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4696,
+    "Name": "2.4G Receiver",
+    "Model": "TM290",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4697,
+    "Name": "A950GD",
+    "Model": "TM265F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 26000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 4,
+    "NativeModules": [
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4704,
+    "Name": "Ultra 07",
+    "Model": "TM00J",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 3950,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM00J"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      5
+    ]
+  },
+  {
+    "Pid": 4705,
+    "Name": "2.4G Receiver",
+    "Model": "TM290",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4707,
+    "Name": "CM620",
+    "Model": "TM290",
+    "Type": 0,
+    "FirmwareType": 1,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 20000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        64,
+        125
+      ],
+      [
+        32,
+        250
+      ],
+      [
+        16,
+        500
+      ],
+      [
+        8,
+        1000
+      ],
+      [
+        4,
+        2000
+      ]
+    ],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4708,
+    "Name": "AE6",
+    "Model": "TM290",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 50000,
+    "SensorModel": 3950,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4709,
+    "Name": "AE6",
+    "Model": "TM290",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 3950,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4721,
+    "Name": "LM180T",
+    "Model": "TM00AF",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 12,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 3950,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4739,
+    "Name": "A950G",
+    "Model": "TM265F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4740,
+    "Name": "A950G",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 4,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4742,
+    "Name": "A950GD",
+    "Model": "TM265F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 4,
+    "NativeModules": [
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4743,
+    "Name": "极光",
+    "Model": "TM01A",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 7,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 20000,
+    "SensorModel": 3315,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4744,
+    "Name": "DAREU Receiver",
+    "Model": "TM265F",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265F",
+      "TM265F_1244",
+      "TM265F_1245",
+      "TM265F_1283",
+      "TM265F_1284",
+      "TM265F_1286"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4745,
+    "Name": "猎风V3",
+    "Model": "TM00P",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 9,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3395,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4754,
+    "Name": "Ultra09",
+    "Model": "TM00T",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 40000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4755,
+    "Name": "Ultra07",
+    "Model": "TP040",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 40000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4757,
+    "Name": "极风3",
+    "Model": "TM290D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4760,
+    "Name": "EM910G",
+    "Model": "TM00PF",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 6,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4761,
+    "Name": "AE6",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 50000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4865,
+    "Name": "A950G",
+    "Model": "TM01AF",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 7,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 20000,
+    "SensorModel": 3315,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4866,
+    "Name": "CM610 ultra v2",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4867,
+    "Name": "A950GD PRO",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 4,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4868,
+    "Name": "CM620",
+    "Model": "TM290",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 8,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ]
+    ],
+    "SensorSupports": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "Pid": 4869,
+    "Name": "EM905 Pro",
+    "Model": "TM173",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 6,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4889,
+    "Name": "EM901",
+    "Model": "TM224",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 6,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4904,
+    "Name": "AE6",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 42000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4905,
+    "Name": "A950 SE",
+    "Model": "TM265D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4912,
+    "Name": "AE6 V2",
+    "Model": "TM290F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F",
+      "TM290F08001G04G",
+      "TM290F08007G08G",
+      "TM290F08009G10G",
+      "TM290F_1233",
+      "TM290F_1299"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4914,
+    "Name": "AE5",
+    "Model": "TM01D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4915,
+    "Name": "2.4G Receiver",
+    "Model": "TM01D",
+    "Type": 2,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4916,
+    "Name": "A950 Wing",
+    "Model": "TM275D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": true,
+    "ButtonCount": 5,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 750,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275D",
+      "TM275D07G08G",
+      "TM275DKR"
+    ],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4917,
+    "Name": "EM911T",
+    "Model": "TM259F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 12000,
+    "SensorModel": 3311,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        8,
+        125
+      ],
+      [
+        4,
+        250
+      ],
+      [
+        2,
+        500
+      ],
+      [
+        1,
+        1000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4919,
+    "Name": "AE6",
+    "Model": "TM290D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 6,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 3955,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [],
+    "Image": "",
+    "PollingUsb": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "PollingWireless": [
+      [
+        1,
+        1000
+      ],
+      [
+        16,
+        2000
+      ],
+      [
+        32,
+        4000
+      ],
+      [
+        64,
+        8000
+      ]
+    ],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4242,
+    "Name": "2.4G Receiver",
+    "Model": "TK51ALedDongle",
+    "Type": 2,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51A"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 339,
+    "Name": "EK87 PRO",
+    "Model": "TK51CF0153",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51CF0153"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 49,
+    "Name": "A81",
+    "Model": "TK51D",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51D"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 70,
+    "Name": "EK75 PRO",
+    "Model": "TK51GF",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GF"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 340,
+    "Name": "EK75 PRO",
+    "Model": "TK51GF0154",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GF0154"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 85,
+    "Name": "EK75 RT",
+    "Model": "TK51GU",
+    "Type": 1,
+    "FirmwareType": -1,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GU"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 89,
+    "Name": "EK75 8K",
+    "Model": "TK51GU8K",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GU8K"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 99,
+    "Name": "EK75 RT 8K",
+    "Model": "TK51GU8K_HY",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GU8K_HY"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 102,
+    "Name": "EK75 RT",
+    "Model": "TK51GU_NewHoyer",
+    "Type": 1,
+    "FirmwareType": -1,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51GU_NewHoyer"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 341,
+    "Name": "EK106 PRO",
+    "Model": "TK51QF0155",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QF0155"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 148,
+    "Name": "EK108 RT",
+    "Model": "TK51QRT0094",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51QRT0094"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 57,
+    "Name": "Z68",
+    "Model": "TK51U",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51U"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 342,
+    "Name": "EK98 PRO",
+    "Model": "TK51VF0156",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK51VF0156"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 153,
+    "Name": "EK71 RT",
+    "Model": "TK52GRT",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52GRT"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 114,
+    "Name": "EK21",
+    "Model": "TK52H",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52H"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 118,
+    "Name": "A80",
+    "Model": "TK52J",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52J"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 278,
+    "Name": "EK815 Pro",
+    "Model": "TK52K0116",
+    "Type": 1,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52K0116"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 61525,
+    "Name": "A75 HE",
+    "Model": "TK52L",
+    "Type": 1,
+    "FirmwareType": 4,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": true,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK52L"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 21,
+    "Name": "CK87",
+    "Model": "TK597",
+    "Type": 1,
+    "FirmwareType": -1,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TK597"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4498,
+    "Name": "EM915 KBS",
+    "Model": "TM188U",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM188U"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4369,
+    "Name": "M20",
+    "Model": "TM228",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM228"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4392,
+    "Name": "A980",
+    "Model": "TM238U",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM238U"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4241,
+    "Name": "Z10",
+    "Model": "TM252",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM252"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4450,
+    "Name": "LM129",
+    "Model": "TM259",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM259"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4679,
+    "Name": "EM911T",
+    "Model": "TM259_1247",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM259_1247"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4464,
+    "Name": "EM950T",
+    "Model": "TM265F",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265F"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4656,
+    "Name": "EM950 MAX",
+    "Model": "TM265UHT",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265UHT"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4660,
+    "Name": "EM950 MAX",
+    "Model": "TM265UHT_8K",
+    "Type": 0,
+    "FirmwareType": 0,
+    "HasBattery": false,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM265UHT_8K"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4626,
+    "Name": "A980PRO",
+    "Model": "TM270F_1212",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM270F_1212"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4706,
+    "Name": "A950 AIR",
+    "Model": "TM275F_1262",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM275F_1262"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4503,
+    "Name": "Wrangler 8",
+    "Model": "TM278D",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": true,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM278D"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4897,
+    "Name": "AE7",
+    "Model": "TM287F08003G",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM287F08003G"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  },
+  {
+    "Pid": 4710,
+    "Name": "AE6",
+    "Model": "TM290F08009G10G",
+    "Type": 0,
+    "FirmwareType": 2,
+    "HasBattery": true,
+    "HasLighting": false,
+    "HasTravel": false,
+    "HasMatrix": false,
+    "CanConfigure": false,
+    "ButtonCount": 0,
+    "KeyCount": 0,
+    "DpiMin": 100,
+    "DpiMax": 30000,
+    "SensorModel": 0,
+    "DpiStep": 50,
+    "StageCount": 5,
+    "NativeModules": [
+      "TM290F08009G10G"
+    ],
+    "Image": "",
+    "PollingUsb": [],
+    "PollingWireless": [],
+    "SensorSupports": []
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "PID": 4212,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4228,
+        "CID": 10,
+        "MID": 9,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4360,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4359,
+        "CID": 4,
+        "MID": 1,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4372,
+    "Type": 1,
+    "PairInfo": [
+      {
+        "PID": 4370,
+        "CID": 10,
+        "MID": 1,
+        "Type": 2
+      },
+      {
+        "PID": 4375,
+        "CID": 10,
+        "MID": 3,
+        "Type": 2
+      },
+      {
+        "PID": 4376,
+        "CID": 10,
+        "MID": 4,
+        "Type": 2
+      },
+      {
+        "PID": 4739,
+        "CID": 10,
+        "MID": 39,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4373,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4370,
+        "CID": 10,
+        "MID": 1,
+        "Type": 2
+      },
+      {
+        "PID": 4375,
+        "CID": 10,
+        "MID": 3,
+        "Type": 2
+      },
+      {
+        "PID": 4376,
+        "CID": 10,
+        "MID": 4,
+        "Type": 2
+      },
+      {
+        "PID": 4739,
+        "CID": 10,
+        "MID": 39,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4405,
+    "Type": 1,
+    "PairInfo": [
+      {
+        "PID": 4406,
+        "CID": 4,
+        "MID": 3,
+        "Type": 2
+      },
+      {
+        "PID": 4404,
+        "CID": 4,
+        "MID": 4,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4436,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4485,
+        "CID": 10,
+        "MID": 11,
+        "Type": 5
+      },
+      {
+        "PID": 4502,
+        "CID": 10,
+        "MID": 13,
+        "Type": 5
+      },
+      {
+        "PID": 4435,
+        "CID": 10,
+        "MID": 5,
+        "Type": 5
+      },
+      {
+        "PID": 4631,
+        "CID": 10,
+        "MID": 21,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4438,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4437,
+        "CID": 4,
+        "MID": 5,
+        "Type": 2
+      },
+      {
+        "PID": 4456,
+        "CID": 4,
+        "MID": 7,
+        "Type": 2
+      },
+      {
+        "PID": 4453,
+        "CID": 10,
+        "MID": 8,
+        "Type": 2
+      },
+      {
+        "PID": 4481,
+        "CID": 10,
+        "MID": 10,
+        "Type": 2
+      },
+      {
+        "PID": 4482,
+        "CID": 10,
+        "MID": 14,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4451,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4760,
+        "CID": 10,
+        "MID": 49,
+        "Type": 2
+      },
+      {
+        "PID": 4917,
+        "CID": 116,
+        "MID": 2,
+        "Type": 2
+      },
+      {
+        "PID": 4869,
+        "CID": 10,
+        "MID": 52,
+        "Type": 2
+      },
+      {
+        "PID": 4889,
+        "CID": 10,
+        "MID": 73,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4469,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4468,
+        "CID": 10,
+        "MID": 9,
+        "Type": 2
+      },
+      {
+        "PID": 4499,
+        "CID": 4,
+        "MID": 9,
+        "Type": 2
+      },
+      {
+        "PID": 4676,
+        "CID": 10,
+        "MID": 25,
+        "Type": 2
+      },
+      {
+        "PID": 4721,
+        "CID": 10,
+        "MID": 37,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4633,
+    "Type": 1,
+    "PairInfo": [
+      {
+        "PID": 4632,
+        "CID": 10,
+        "MID": 16,
+        "Type": 3
+      },
+      {
+        "PID": 4640,
+        "CID": 10,
+        "MID": 17,
+        "Type": 3
+      },
+      {
+        "PID": 4659,
+        "CID": 10,
+        "MID": 19,
+        "Type": 3
+      },
+      {
+        "PID": 4661,
+        "CID": 10,
+        "MID": 22,
+        "Type": 3
+      },
+      {
+        "PID": 4743,
+        "CID": 10,
+        "MID": 51,
+        "Type": 5
+      },
+      {
+        "PID": 4904,
+        "CID": 10,
+        "MID": 58,
+        "Type": 5
+      },
+      {
+        "PID": 4868,
+        "CID": 10,
+        "MID": 54,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4647,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4646,
+        "CID": 10,
+        "MID": 18,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4678,
+    "Type": 2,
+    "PairInfo": [
+      {
+        "PID": 4677,
+        "CID": 10,
+        "MID": 26,
+        "Type": 2
+      },
+      {
+        "PID": 4697,
+        "CID": 10,
+        "MID": 31,
+        "Type": 2
+      },
+      {
+        "PID": 4453,
+        "CID": 10,
+        "MID": 8,
+        "Type": 2
+      },
+      {
+        "PID": 4740,
+        "CID": 10,
+        "MID": 41,
+        "Type": 2
+      },
+      {
+        "PID": 4742,
+        "CID": 10,
+        "MID": 40,
+        "Type": 2
+      },
+      {
+        "PID": 4905,
+        "CID": 10,
+        "MID": 59,
+        "Type": 2
+      },
+      {
+        "PID": 4866,
+        "CID": 10,
+        "MID": 55,
+        "Type": 2
+      },
+      {
+        "PID": 4867,
+        "CID": 10,
+        "MID": 60,
+        "Type": 2
+      }
+    ]
+  },
+  {
+    "PID": 4695,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4688,
+        "CID": 10,
+        "MID": 50,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4664,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4663,
+        "CID": 10,
+        "MID": 28,
+        "Type": 5
+      },
+      {
+        "PID": 4757,
+        "CID": 10,
+        "MID": 44,
+        "Type": 5
+      },
+      {
+        "PID": 4919,
+        "CID": 10,
+        "MID": 66,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4696,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4745,
+        "CID": 10,
+        "MID": 46,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4705,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4709,
+        "CID": 10,
+        "MID": 36,
+        "Type": 5
+      },
+      {
+        "PID": 4704,
+        "CID": 10,
+        "MID": 34,
+        "Type": 5
+      },
+      {
+        "PID": 4761,
+        "CID": 10,
+        "MID": 47,
+        "Type": 5
+      },
+      {
+        "PID": 4708,
+        "CID": 10,
+        "MID": 35,
+        "Type": 5
+      },
+      {
+        "PID": 4912,
+        "CID": 10,
+        "MID": 62,
+        "Type": 5
+      },
+      {
+        "PID": 4916,
+        "CID": 10,
+        "MID": 67,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 326,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 311,
+        "CID": 3,
+        "MID": 1,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4744,
+    "Type": 0,
+    "PairInfo": [
+      {
+        "PID": 4865,
+        "CID": 10,
+        "MID": 53,
+        "Type": 5
+      }
+    ]
+  },
+  {
+    "PID": 4915,
+    "Type": 5,
+    "PairInfo": [
+      {
+        "PID": 4914,
+        "CID": 10,
+        "MID": 68,
+        "Type": 5
+      }
+    ]
+  }
+]

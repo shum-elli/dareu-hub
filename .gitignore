@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+.vs/
+.vscode/
+.idea/
+publish/
+artifacts/
+*.user
+*.suo
+*.pdb
+*.log
+*.zip
+.env
+.env.*
+!*.example

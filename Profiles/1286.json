@@ -1,0 +1,77 @@
+{
+  "Device": {
+    "PID": "1286",
+    "Model": "TM265F",
+    "ProductName": "A950GD",
+    "Type": 0,
+    "FwType": 2
+  },
+  "Buttons": [
+    {
+      "KeyID": 1,
+      "default-function-Id": 1,
+      "default-function-data": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "KeyID": 2,
+      "default-function-Id": 1,
+      "default-function-data": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "KeyID": 3,
+      "default-function-Id": 1,
+      "default-function-data": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "KeyID": 4,
+      "default-function-Id": 1,
+      "default-function-data": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "KeyID": 5,
+      "default-function-Id": 1,
+      "default-function-data": [
+        5,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "KeyID": 6,
+      "default-function-Id": 19,
+      "default-function-data": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
