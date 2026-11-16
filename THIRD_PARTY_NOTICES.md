@@ -14,9 +14,11 @@ The MIT license does not grant rights in DAREU names, trademarks or excluded ven
 
 Dependencies are obtained from NuGet during restore and retain their own licenses:
 
-- [HidSharp 2.6.4](https://www.nuget.org/packages/HidSharp/2.6.4): HID access; see the upstream package license.
+- [HidSharp 2.6.4](https://www.nuget.org/packages/HidSharp/2.6.4): Apache-2.0; see the bundled upstream license in `licenses/`.
 - [NAudio.Wasapi / NAudio.Core 2.2.1](https://github.com/naudio/NAudio): MIT.
 - [Windows App SDK](https://github.com/microsoft/WindowsAppSDK): Microsoft package terms and associated third-party notices.
 - [.NET 8](https://github.com/dotnet/runtime): MIT and associated notices.
+
+Upstream license / notice texts from restored dependencies are collected in `licenses/`. These files retain their original terms.
 
 Portable distributions include runtime files; retain all license / third-party notice files supplied by those packages. Framework-dependent Slim distributions rely on separately installed runtimes.
