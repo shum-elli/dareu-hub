@@ -151,7 +151,7 @@ public sealed partial class MainWindow : Window
         try
         {
             await Task.Delay(40, ct);
-            if (ct.IsCancellationRequested || busy || audioSession != null)
+            if (ct.IsCancellationRequested || busy)
                 return;
 
             var polled = await controller.PollMouseStageAsync(ct);
@@ -424,10 +424,12 @@ public sealed partial class MainWindow : Window
 
     async void OnForegroundProcessChanged(string processName)
     {
-        if (!appSettings.AutoSwitchEnabled || busy || audioSession != null)
+        if (!appSettings.AutoSwitchEnabled || busy)
             return;
         var selected = endpoint;
         if (selected == null || !selected.CanConfigure)
+            return;
+        if (audioSession != null && selected.Path == audioSession.EndpointPath)
             return;
 
         var rule = appSettings.MatchRule(processName, selected.FamilyKey);
