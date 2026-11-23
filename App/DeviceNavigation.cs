@@ -11,7 +11,7 @@ public sealed partial class MainWindow
 
     async Task DeviceTimerTick()
     {
-        if (busy || dpiOperation != null) return;
+        if (busy) return;
         try
         {
             if (audioSession is { } session)
@@ -23,18 +23,38 @@ public sealed partial class MainWindow
                 if (page == "music") Render();
                 Status.IsOpen = true; Status.Severity = InfoBarSeverity.Warning;
                 Status.Title = "音乐律动已停止"; Status.Message = reason;
+                return;
             }
-            bool changed = Scan();
-            if (page == "overview" && (changed || DateTime.UtcNow - lastPowerRefresh > TimeSpan.FromSeconds(15)))
-                await Run(RefreshDashboard, "设备状态已更新");
-            else if (changed && deviceSelected && endpoint?.CanConfigure == true)
-                await Run(Connect, "连接方式已更新");
+            if (page == "overview")
+                await RefreshDashboard();
+            else if (endpoint != null && endpoint.CanConfigure && endpoint.Product?.HasBattery == true)
+                await RefreshSelectedPowerOnly();
         }
         catch (Exception ex)
         {
             AddLog(ex.Message);
         }
     }
+
+    async Task RefreshSelectedPowerOnly()
+    {
+        var current = endpoint;
+        if (current == null || !current.CanConfigure || current.Product?.HasBattery != true)
+            return;
+        try
+        {
+            var power = await controller.ReadPowerAsync(current);
+            if (!ReferenceEquals(endpoint, current))
+                return;
+            selectedPower = power;
+            UpdateHeaderSummary();
+            CheckLowBatteryNotification(current, power);
+            UpdateTrayTooltip();
+        }
+        catch (IOException) { }
+        catch (TimeoutException) { }
+    }
+
     void UpdateDeviceNavigation()
     {
         if (page == "overview") deviceSelected = false;

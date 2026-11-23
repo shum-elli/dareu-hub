@@ -9,7 +9,7 @@ using Windows.UI;
 namespace DareuLocal.App;
 public sealed partial class MainWindow
 {
-    UIElement MouseMappingDiagram(Action<int, string> selected)
+    UIElement MouseMappingDiagram(Action<int, string> selected, Action<Action<int, string, bool>>? registerBadgeUpdater = null)
     {
         var canvas = new Canvas { Width = 800, Height = 350 };
         var picture = new Image { Source = ProductImage(endpoint!.Product), Width = 220, Height = 325, Stretch = Stretch.Uniform };
@@ -17,6 +17,7 @@ public sealed partial class MainWindow
         Canvas.SetTop(picture, 10);
         canvas.Children.Add(picture);
         var buttons = new Dictionary<int, Button>();
+        var badges = new Dictionary<int, TextBlock>();
         var dots = new Dictionary<int, Ellipse>();
         var paths = new Dictionary<int, Polyline>();
         string[] labels = { "左键单击", "右键单击", "滚轮单击", "后退侧键", "前进侧键", "DPI 按键" };
@@ -42,19 +43,29 @@ public sealed partial class MainWindow
             double labelX = a.Left ? 20 : 580;
             double endX = a.Left ? labelX + 180 : labelX;
             var line = new Polyline { Stroke = ThemePalette.Border, StrokeThickness = 1.5, IsHitTestVisible = false,
-                Points = new PointCollection { new Point(a.X, a.Y), new Point(a.Left ? 268 : 540, a.LabelY + 22), new Point(endX, a.LabelY + 22) } };
+                Points = new PointCollection { new Point(a.X, a.Y), new Point(a.Left ? 268 : 540, a.LabelY + 26), new Point(endX, a.LabelY + 26) } };
             paths[id] = line;
             canvas.Children.Add(line);
             var dot = new Ellipse { Width = 9, Height = 9, Fill = ThemePalette.Secondary, IsHitTestVisible = false };
             Canvas.SetLeft(dot, a.X - 4.5); Canvas.SetTop(dot, a.Y - 4.5);
             dots[id] = dot; canvas.Children.Add(dot);
-            var button = Button($"{id}   {labels[i]}", () => { Select(id); return Task.CompletedTask; });
-            button.Width = 180; button.Height = 44; button.Padding = new Thickness(12, 0, 12, 0);
+
+            var titleLine = new TextBlock { Text = $"{id}   {labels[i]}", FontSize = 12, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold };
+            var badgeLine = new TextBlock { Text = "读取中…", FontSize = 11, Foreground = ThemePalette.Secondary, TextTrimming = TextTrimming.CharacterEllipsis };
+            var inner = new StackPanel { Spacing = 2 };
+            inner.Children.Add(titleLine);
+            inner.Children.Add(badgeLine);
+
+            var button = Button("", () => { Select(id); return Task.CompletedTask; });
+            button.Content = inner;
+            button.Width = 180; button.Height = 52; button.Padding = new Thickness(12, 6, 12, 6);
             button.HorizontalContentAlignment = HorizontalAlignment.Left;
             button.Background = ThemePalette.Recessed;
+            button.BorderThickness = new Thickness(1);
+            button.BorderBrush = ThemePalette.Border;
             AutomationProperties.SetName(button, $"选择鼠标按键 {id}：{labels[i]}");
             Canvas.SetLeft(button, labelX); Canvas.SetTop(button, a.LabelY);
-            buttons[id] = button; canvas.Children.Add(button);
+            buttons[id] = button; badges[id] = badgeLine; canvas.Children.Add(button);
             var hit = new Button { Width = 24, Height = 24, Background = new SolidColorBrush(Color.FromArgb(1, 0, 0, 0)), BorderThickness = new Thickness(0), Padding = new Thickness(0) };
             AutomationProperties.SetName(hit, $"鼠标示意图：{labels[i]}");
             ToolTipService.SetToolTip(hit, labels[i]);
@@ -62,12 +73,24 @@ public sealed partial class MainWindow
             Canvas.SetLeft(hit, a.X - 12); Canvas.SetTop(hit, a.Y - 12);
             canvas.Children.Add(hit);
         }
+        registerBadgeUpdater?.Invoke((id, text, modified) =>
+        {
+            if (badges.TryGetValue(id, out var badge))
+            {
+                badge.Text = text;
+                badge.Foreground = modified ? ThemePalette.AccentText : ThemePalette.Secondary;
+            }
+            if (buttons.TryGetValue(id, out var btn))
+            {
+                btn.BorderBrush = modified ? ThemePalette.AccentText : ThemePalette.Border;
+                btn.BorderThickness = new Thickness(modified ? 1.5 : 1);
+            }
+        });
         Select(1, false);
         return Card("选择鼠标按键", new Viewbox { Child = canvas, Stretch = Stretch.Uniform, MaxHeight = 350, HorizontalAlignment = HorizontalAlignment.Stretch },
             Text("点击引线标签或鼠标上的圆点选择按键，再在下方设置功能。"));
     }
-    // The page owns the timer; a pending operation is awaited before any other device action.
-    Task? dpiOperation;
+
     void MouseDpiEditor(StackPanel body)
     {
         var owner = endpoint!;
@@ -76,13 +99,13 @@ public sealed partial class MainWindow
         int[] values = entry.Dpi.ToArray();
         int selected = Math.Clamp(entry.Stage - 1, 0, values.Length - 1);
         int min = Math.Max(50, owner.Product?.DpiMin ?? 100), max = Math.Min(30000, owner.Product?.DpiMax ?? 30000);
-        bool syncing = false, activePage = false;
+        bool syncing = false, activePage = false, dpiPollBusy = false;
         (int Stage, int Value, long Revision)? pending = null;
         long revision = 0;
-        DateTime due = DateTime.MinValue, nextPoll = DateTime.MinValue;
-        bool Here() => activePage && page == "performance" && ReferenceEquals(endpoint, owner) && ReferenceEquals(WorkArea.Content, body);
+        DateTime due = DateTime.MinValue;
+        bool Here() => activePage && page == "performance" && ReferenceEquals(endpoint, owner);
         var actual = Text("", 28); actual.Foreground = ThemePalette.Primary;
-        var status = Text("设备状态会自动刷新。", 12);
+        var status = Text("按鼠标 DPI 键或拖动滑块都会实时同步。", 12);
         var live = new ToggleSwitch { Header = "实时试用", IsOn = true, OnContent = "调节后直接生效", OffContent = "仅编辑，点击保存后生效" };
         var number = Number("精确 DPI（50 的倍数）", values[selected], min, max, 50);
         var slider = new Slider { Minimum = min, Maximum = max, Value = Math.Clamp(values[selected], min, max), StepFrequency = 50,
@@ -142,16 +165,21 @@ public sealed partial class MainWindow
             if (!Here()) return;
             if (next.Profile != observed.Profile || next.Dpi.Length != values.Length)
             {
-                pending = null; mouse = next; Render(); return;
+                pending = null;
+                controller.UpdateObservedMouseState(next, owner.Path);
+                Render();
+                return;
             }
-            bool follow = next.Stage != observed.Stage && pending == null && live.IsOn;
+            bool stageChanged = next.Stage != observed.Stage;
+            bool follow = stageChanged && pending == null && live.IsOn;
             for (int i = 0; i < values.Length; i++)
                 if (values[i] == observed.Dpi[i]) values[i] = next.Dpi[i];
-            observed = next; mouse = next;
+            observed = next;
+            controller.UpdateObservedMouseState(next, owner.Path);
             if (follow) selected = next.Stage - 1;
             if (pending == null && number.FocusState == FocusState.Unfocused) SyncInputs();
             RefreshCards();
-            status.Text = (applied ? "已生效并读回确认" : "已同步设备") + $" · Profile {next.Profile} · {DateTime.Now:HH:mm:ss}";
+            status.Text = (applied ? "已生效并读回确认" : "已同步设备") + $" · {appSettings.GetProfileDisplayName(owner.FamilyKey, next.Profile)} · {DateTime.Now:HH:mm:ss}";
         }
         async Task Exchange()
         {
@@ -182,15 +210,15 @@ public sealed partial class MainWindow
                 status.Text = "同步失败：" + ex.Message + "；可唤醒设备后重试。";
                 AddLog(ex.Message);
             }
-            finally { nextPoll = DateTime.UtcNow.AddMilliseconds(800); }
         }
         var clock = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(150) };
         clock.Tick += async (_, _) =>
         {
-            if (!Here() || !AppWindow.IsVisible || busy || dpiOperation != null) return;
-            if (pending != null ? DateTime.UtcNow < due : DateTime.UtcNow < nextPoll) return;
-            var operation = Exchange(); dpiOperation = operation;
-            try { await operation; } finally { if (ReferenceEquals(dpiOperation, operation)) dpiOperation = null; }
+            if (!Here() || !AppWindow.IsVisible || busy || dpiPollBusy) return;
+            if (pending == null || DateTime.UtcNow < due) return;
+            dpiPollBusy = true;
+            try { await Exchange(); }
+            finally { dpiPollBusy = false; }
         };
         number.ValueChanged += (_, _) =>
         {
@@ -212,8 +240,27 @@ public sealed partial class MainWindow
         var range = new Grid(); range.ColumnDefinitions.Add(new()); range.ColumnDefinitions.Add(new());
         var high = Text($"{max} DPI"); high.HorizontalAlignment = HorizontalAlignment.Right; Grid.SetColumn(high, 1);
         range.Children.Add(Text($"{min} DPI")); range.Children.Add(high);
+
+        var presetButtons = new[] { 400, 800, 1600, 3200 }
+            .Where(v => v >= min && v <= max)
+            .Select(v =>
+            {
+                var btn = Button($"{v}", () =>
+                {
+                    values[selected] = v;
+                    SyncInputs();
+                    RefreshCards();
+                    Queue();
+                    return Task.CompletedTask;
+                });
+                btn.Padding = new Thickness(12, 6, 12, 6);
+                return (UIElement)btn;
+            }).ToArray();
+        var presetsRow = Row(new UIElement[] { Text("快捷预设：", 12) }.Concat(presetButtons).ToArray());
+        presetsRow.VerticalAlignment = VerticalAlignment.Center;
+
         var count = Choices("启用档位数量", Enumerable.Range(1, Math.Clamp(owner.Product?.StageCount ?? 5, 1, 7)).Select(i => new Choice(i, $"{i} 档")), values.Length);
-        var panel = Card("DPI 灵敏度", actual, status, live, cards, slider, range, number,
+        var panel = Card("DPI 灵敏度", actual, status, live, cards, slider, range, presetsRow, number,
             Text("实时试用会直接修改设备档位；关闭后可先编辑再保存。使用鼠标 DPI 键切档，页面会自动同步。", 12),
             ActionButton("保存全部 DPI 并启用所选档位", async () =>
             {
@@ -259,7 +306,18 @@ public sealed partial class MainWindow
         { content.Children.Remove(element); advanced.Children.Add(element); }
         content.Children.Add(new Expander { Header = "档位数量与恢复", Content = advanced, HorizontalAlignment = HorizontalAlignment.Stretch });
         body.Children.Add(panel); RefreshCards();
-        panel.Loaded += (_, _) => { activePage = true; nextPoll = DateTime.MinValue; clock.Start(); };
-        panel.Unloaded += (_, _) => { activePage = false; clock.Stop(); pending = null; };
+        panel.Loaded += (_, _) =>
+        {
+            activePage = true;
+            onExternalMouseStateObserved = next => { if (Here()) Observe(next, applied: false); };
+            clock.Start();
+        };
+        panel.Unloaded += (_, _) =>
+        {
+            activePage = false;
+            onExternalMouseStateObserved = null;
+            clock.Stop();
+            pending = null;
+        };
     }
 }

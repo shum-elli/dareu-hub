@@ -4,17 +4,18 @@
 
 **达尔优鼠标 / 键盘的非官方 WinUI 3 本地设置工具。**
 
-C# / .NET 8 · Windows x64 · MIT · 预览版 0.7.1
+C# / .NET 8 · Windows x64 · MIT · 预览版 0.9.0
 
 目标是让支持型号通过 USB 或 2.4G 接收器在本地完成设置，无需打开 Web 驱动。项目与 DAREU 无隶属或背书关系。
 
 ## 功能
 
-- 设备首页：选择设备后才展开功能栏，按型号隐藏不适用功能；有线优先，显示电量与充电状态。
-- 鼠标：按键映射、宏、DPI 档位与实时试用、回报率、休眠，以及支持型号的传感器 / 引擎选项。
-- 标准 TG 键盘：标准 / Fn 层按键映射、灯效、逐键 RGB、系统音频律动、宏与板载配置。
-- 本地配置备份与恢复、浅色 / 深色主题、顶部拖动、最小化到托盘。
-- 本次运行使用的配置和日志不上传服务器；音乐律动不使用麦克风、不保存音频。
+- 设备首页：选择设备后才展开功能栏，按型号隐藏不适用功能；有线优先，显示电量与充电状态，支持热插拔事件监听。
+- 桌面驻留与自动化：开机自启、`--minimized` 静默启动到托盘、关闭最小化到托盘、托盘电量与快捷切换配置、低电量提醒、前台应用自动切换配置与 DPI / 配置切换系统通知。
+- 鼠标：可视化按键映射与按键录入、宏、DPI 档位与快捷预设及实时试用、125–8000 Hz 回报率、休眠，以及支持型号的传感器 / 引擎选项（统一应用与回读校验）。
+- 标准 TG 键盘：标准 / Fn 层按键映射与循环模式宏、色块式灯光设置、画笔/橡皮擦/吸管/分区逐键 RGB 与实时同步预览、系统音频 FFT 频谱律动、键鼠双录宏编辑器与板载配置别名。
+- 本地事务型配置备份与回滚恢复、浅色 / 深色主题、脱敏诊断包导出、手动检查更新。
+- 默认完全离线，本次运行使用的配置和日志不上传服务器（仅在手动点击“检查新版本”时访问 GitHub Releases）；音乐律动不使用麦克风、不保存音频。
 
 公开版采用项目自绘设备示意图，**不附带官方产品照片、官方程序、DLL、固件或反编译源码**。键位图使用硬件事实数据，详见 [来源说明](THIRD_PARTY_NOTICES.md)。
 
@@ -26,7 +27,7 @@ C# / .NET 8 · Windows x64 · MIT · 预览版 0.7.1
 
 已通过：Release 构建、DPI / 宏编解码、报文校验、USB 优先、设备能力过滤等离线检查。开发中已验证 AE6 V2 有线部分参数原值写回、无线状态读取，及 EK75 有线 / 无线基础读写、临时 RGB 帧和音频律动恢复。
 
-**仍需验证：** 最新版标题栏拖动与托盘完整交互、实时 DPI 连续改值、不同固件兼容性。EK75 无线固件不支持已保存 RGB 颜色的读回，应用会说明未能验证颜色；颜色持久化尚未完成实机验证。备份恢复不是事务，中断时可能仅写入部分设置。
+**仍需验证：** 最新版桌面驻留、托盘快捷切档、前台应用自动切换、实时 DPI 连续改值与不同固件兼容性。EK75 无线固件不支持已保存 RGB 颜色的读回，应用会说明未能验证颜色；颜色持久化尚未完成实机验证。备份恢复支持失败自动回滚，但如果设备在回滚期间断开仍需通过本地自动备份恢复。
 
 ## 使用
 
@@ -39,7 +40,7 @@ C# / .NET 8 · Windows x64 · MIT · 预览版 0.7.1
 
 .NET 运行库可从 [微软 .NET 8 页面](https://dotnet.microsoft.com/download/dotnet/8.0) 获取；Windows App Runtime 见 [微软下载页](https://learn.microsoft.com/windows/apps/windows-app-sdk/downloads)。
 
-DPI 页的“实时试用”默认开启，调节后会直接修改板载值，不会在离开页面后自动恢复；可在“档位数量与恢复”中还原进入页面时的值。最小化收进托盘；点击托盘图标恢复，右键可退出。关闭按钮直接退出。
+DPI 页的“实时试用”默认开启，调节后会直接修改板载值，不会在离开页面后自动恢复；可在“档位数量与恢复”中还原进入页面时的值。最小化收进托盘；可在“设置与诊断”中启用关闭按钮隐藏到托盘、开机自启与 `--minimized` 静默启动。点击托盘图标恢复，右键可查看设备电量、快速切换配置或退出。
 
 本地数据目录：`%LOCALAPPDATA%/DareuLocal`。本仓库不含个人备份、宏、设备日志或凭据。
 
@@ -48,6 +49,7 @@ DPI 页的“实时试用”默认开启，调节后会直接修改板载值，�
 需要 Windows、.NET 8 SDK 和 Windows SDK（首次 NuGet 还原需联网）。
 
 ```powershell
+dotnet test Tests/DareuLocal.Tests.csproj -c Release
 dotnet run --project Probe/Probe.csproj -c Release -- --self-test
 # 精简版
 dotnet publish App/DareuLocal.App.csproj -c Release -p:Platform=x64 -p:PublishProfile=Slim -o publish/slim
@@ -55,12 +57,13 @@ dotnet publish App/DareuLocal.App.csproj -c Release -p:Platform=x64 -p:PublishPr
 dotnet publish App/DareuLocal.App.csproj -c Release -p:Platform=x64 -p:PublishProfile=Portable -o publish/portable
 ```
 
-GitHub Actions 在 Windows 上执行离线自检并构建两种运行包。CI **不会连接真实硬件或运行设备写入检查**。
+GitHub Actions 在 Windows 上执行单元测试与离线自检并构建两种运行包。CI **不会连接真实硬件或运行设备写入检查**。
 
 ```text
-App/        WinUI 3 界面、音频回环、托盘
-Core/       HID、设备目录、配置 / 宏 / RGB 协议
+App/        WinUI 3 界面、音频回环、托盘、OSD、前台监听
+Core/       HID、设备目录、串行队列、FFT、配置 / 宏 / RGB 协议
 Profiles/   精简后的设备事实与键位数据
+Tests/      xUnit 离线单元测试
 Probe/      离线自检及显式硬件诊断
 AudioProbe/ 会临时改变灯光的开发用音频检查
 ```

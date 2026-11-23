@@ -7,10 +7,13 @@ using Windows.Graphics;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 namespace DareuLocal.App;
+internal sealed record TrayMenuItem(string Label, Action? OnClick = null, bool Checked = false, bool Separator = false, bool Disabled = false);
 public sealed partial class MainWindow
 {
     TrayIcon? trayIcon;
-    void InitializeDesktopWindow()
+    bool forceExit;
+    internal bool ShouldStartMinimized { get; private set; }
+    void InitializeDesktopWindow(bool launchedMinimized)
     {
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(null);
@@ -60,14 +63,30 @@ public sealed partial class MainWindow
         Root.LayoutUpdated += (_, _) => UpdateTitleRegions();
         try
         {
-            trayIcon = new TrayIcon(this, icon, RestoreFromTray, Close);
+            trayIcon = new TrayIcon(this, icon, RestoreFromTray, ExitFromTray, BuildTrayMenu, OnUsbDeviceChanged);
         }
         catch (Win32Exception ex)
         {
             // Keep ordinary taskbar minimization available if Explorer rejects the tray icon.
             AddLog("托盘图标未能初始化：" + ex.Message);
         }
+        ShouldStartMinimized = (launchedMinimized || appSettings.StartMinimized) && trayIcon != null;
+        if (ShouldStartMinimized)
+            AppWindow.Hide();
+        AppWindow.Closing += (_, args) =>
+        {
+            if (appSettings.CloseToTray && !forceExit && trayIcon != null)
+            {
+                args.Cancel = true;
+                AppWindow.Hide();
+            }
+        };
         Closed += (_, _) => { trayIcon?.Dispose(); trayIcon = null; };
+    }
+    public void ExitFromTray()
+    {
+        forceExit = true;
+        Close();
     }
     public void RestoreFromTray()
     {
@@ -82,16 +101,26 @@ public sealed partial class MainWindow
 internal sealed class TrayIcon : IDisposable
 {
     const uint CallbackMessage = 0x8001;
+    const uint WmDeviceChange = 0x0219;
     readonly MainWindow window;
-    readonly Action restore, exit;
+    readonly Action restore, exit, deviceChanged;
+    readonly Func<IReadOnlyList<TrayMenuItem>> menuProvider;
     readonly nint hwnd;
     readonly SubclassProc callback;
     readonly uint taskbarCreated;
     nint icon;
+    string currentTip = "Dareu Local · 点击打开，右键查看菜单";
     bool registered, disposed;
-    public TrayIcon(MainWindow window, string file, Action restore, Action exit)
+    public TrayIcon(
+        MainWindow window,
+        string file,
+        Action restore,
+        Action exit,
+        Func<IReadOnlyList<TrayMenuItem>> menuProvider,
+        Action deviceChanged)
     {
         this.window = window; this.restore = restore; this.exit = exit;
+        this.menuProvider = menuProvider; this.deviceChanged = deviceChanged;
         hwnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
         callback = WindowProcedure;
         icon = LoadImage(0, file, 1, 32, 32, 0x10);
@@ -102,12 +131,13 @@ internal sealed class TrayIcon : IDisposable
         if (!AddIcon())
         { Dispose(); throw new Win32Exception(Marshal.GetLastWin32Error(), "系统通知区域暂不可用"); }
     }
-    NotifyIconData Data() => new()
+    NotifyIconData Data(string? tip = null) => new()
     {
         Size = (uint)Marshal.SizeOf<NotifyIconData>(), Window = hwnd, Id = 1,
         Flags = 1 | 2 | 4 | 0x80, Callback = CallbackMessage, Icon = icon,
-        Tip = "Dareu Local · 点击打开，右键查看菜单", Info = "", InfoTitle = ""
+        Tip = Truncate(tip ?? currentTip, 127), Info = "", InfoTitle = ""
     };
+    static string Truncate(string text, int max) => text.Length <= max ? text : text[..max];
     bool AddIcon()
     {
         var data = Data();
@@ -115,11 +145,38 @@ internal sealed class TrayIcon : IDisposable
         if (registered) { data.Version = 4; ShellNotifyIcon(4, ref data); }
         return registered;
     }
+    public void UpdateTooltip(string tip)
+    {
+        if (disposed || !registered || string.IsNullOrWhiteSpace(tip))
+            return;
+        currentTip = Truncate(tip, 127);
+        var data = Data(currentTip);
+        ShellNotifyIcon(1, ref data);
+    }
+    public void ShowBalloon(string title, string message, bool warning = false)
+    {
+        if (disposed || !registered)
+            return;
+        var data = new NotifyIconData
+        {
+            Size = (uint)Marshal.SizeOf<NotifyIconData>(),
+            Window = hwnd,
+            Id = 1,
+            Flags = 0x10 | 0x80,
+            Tip = Truncate(currentTip, 127),
+            InfoTitle = Truncate(title, 63),
+            Info = Truncate(message, 255),
+            InfoFlags = (uint)(warning ? 0x02 : 0x01 | 0x10)
+        };
+        ShellNotifyIcon(1, ref data);
+    }
     nint WindowProcedure(nint handle, uint message, nuint wParam, nint lParam, nuint id, nuint reference)
     {
         if (!disposed)
         {
             if (message == taskbarCreated) AddIcon();
+            else if (message == WmDeviceChange)
+                window.DispatcherQueue.TryEnqueue(() => { if (!disposed) deviceChanged(); });
             else if (message == 5 && wParam == 1 && registered)
                 window.DispatcherQueue.TryEnqueue(() => { if (!disposed && registered) window.AppWindow.Hide(); });
             else if (message == CallbackMessage)
@@ -140,17 +197,30 @@ internal sealed class TrayIcon : IDisposable
         if (menu == 0) return;
         try
         {
-            AppendMenu(menu, 0, 1, "打开 Dareu Local");
-            AppendMenu(menu, 0, 2, "隐藏到托盘");
-            AppendMenu(menu, 0x800, 0, null);
-            AppendMenu(menu, 0, 3, "退出");
+            var items = menuProvider();
+            var actions = new List<Action?>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+                if (item.Separator)
+                {
+                    AppendMenu(menu, 0x800, 0, null);
+                    actions.Add(null);
+                    continue;
+                }
+                uint flags = 0;
+                if (item.Disabled || item.OnClick == null) flags |= 0x0001 | 0x0002;
+                if (item.Checked) flags |= 0x0008;
+                nuint cmdId = (nuint)(actions.Count + 1);
+                actions.Add(item.OnClick);
+                AppendMenu(menu, flags, cmdId, item.Label);
+            }
             SetForegroundWindow(hwnd);
             GetCursorPos(out var point);
             uint command = TrackPopupMenu(menu, 0x100 | 0x2, point.X, point.Y, 0, hwnd, 0);
             PostMessage(hwnd, 0, 0, 0);
-            if (command == 1) restore();
-            else if (command == 2) window.AppWindow.Hide();
-            else if (command == 3) exit();
+            if (command > 0 && command <= actions.Count)
+                actions[(int)command - 1]?.Invoke();
         }
         finally { DestroyMenu(menu); }
     }

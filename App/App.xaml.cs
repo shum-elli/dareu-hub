@@ -17,8 +17,10 @@ public partial class App : Application
             using var signal = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\DareuLocal-Restore");
             signal.Set(); singleton.Dispose(); singleton = null; Exit(); return;
         }
+        bool startMinimized = Environment.GetCommandLineArgs().Any(a => string.Equals(a, "--minimized", StringComparison.OrdinalIgnoreCase));
         restoreSignal = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\DareuLocal-Restore");
-        window = new MainWindow();
+        var mainWindow = new MainWindow(startMinimized);
+        window = mainWindow;
         restoreWait = ThreadPool.RegisterWaitForSingleObject(restoreSignal, (_, _) =>
         {
             if (window is MainWindow main) main.DispatcherQueue.TryEnqueue(main.RestoreFromTray);
@@ -28,6 +30,7 @@ public partial class App : Application
             restoreWait?.Unregister(null); restoreSignal?.Dispose();
             singleton?.ReleaseMutex(); singleton?.Dispose(); singleton = null;
         };
-        window.Activate();
+        if (!mainWindow.ShouldStartMinimized)
+            window.Activate();
     }
 }

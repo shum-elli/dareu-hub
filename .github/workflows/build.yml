@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+      - name: Unit tests
+        run: dotnet test Tests/DareuLocal.Tests.csproj -c Release
       - name: Offline protocol checks
         run: dotnet run --project Probe/Probe.csproj -c Release -- --self-test
       - name: Publish Slim

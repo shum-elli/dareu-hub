@@ -8,19 +8,31 @@ using Windows.UI;
 namespace DareuLocal.App;
 public sealed partial class MainWindow
 {
-    sealed record HomeDevice(DeviceEndpoint Endpoint, PowerReading? Power, bool HasBoth, string? Error);
-    Dictionary<string, Action<HomeDevice>> homeUpdates = new(); TextBlock? powerUpdatedText; List<HomeDevice> homeDevices = new(); DateTime lastPowerRefresh = DateTime.MinValue; PowerReading? selectedPower;
+    Dictionary<string, Action<DashboardReading>> homeUpdates = new();
+    TextBlock? powerUpdatedText;
+    List<DashboardReading> homeDevices = new();
+    DateTime lastPowerRefresh = DateTime.MinValue;
     static readonly SolidColorBrush Green = new(Color.FromArgb(255, 115, 218, 161));
     static readonly SolidColorBrush Orange = new(Color.FromArgb(255, 255, 161, 101));
     static readonly SolidColorBrush Muted = new(Color.FromArgb(255, 151, 165, 183));
+
     async Task RefreshDashboard()
     {
-        await Task.Run(DeviceIdentityProbe.ResolveReceivers);
+        await controller.ResolveReceiversAsync();
         Scan();
         var all = Hardware.Endpoints();
         var preferred = Hardware.PreferredEndpoints(all);
-        homeDevices = await Task.Run(() => preferred.Select(e => { bool both = all.Any(x => x.FamilyKey == e.FamilyKey && x.Wireless) && all.Any(x => x.FamilyKey == e.FamilyKey && !x.Wireless); try { return new HomeDevice(e, DeviceIdentityProbe.ReadPower(e), both, null); } catch (Exception ex) { return new HomeDevice(e, null, both, ex.Message); } }).ToList());
+        controller.BackgroundMouseEndpoint = preferred.FirstOrDefault(x => x.Kind == DeviceKind.Mouse && x.CanConfigure);
+        SyncMouseWatcher();
+        homeDevices = await controller.ReadDashboardAsync(all, preferred);
+        if (appSettings.OsdEnabled && controller.LastObservedMouseStage == null && controller.BackgroundMouseEndpoint != null)
+            _ = controller.PollMouseStageAsync();
         lastPowerRefresh = DateTime.UtcNow;
+
+        foreach (var d in homeDevices)
+            CheckLowBatteryNotification(d.Endpoint, d.Power);
+        UpdateTrayTooltip();
+
         if (page == "overview")
         {
             if (homeUpdates.Count != homeDevices.Count)
@@ -35,6 +47,83 @@ public sealed partial class MainWindow
             }
         }
     }
+
+    void CheckLowBatteryNotification(DeviceEndpoint dev, PowerReading? power)
+    {
+        if (controller.EvaluateLowBatteryWarning(dev, power) is string message)
+            trayIcon?.ShowBalloon("设备电量低", message, warning: true);
+    }
+
+    void UpdateTrayTooltip()
+    {
+        if (trayIcon == null)
+            return;
+        if (homeDevices.Count > 0)
+        {
+            var parts = homeDevices.Select(d =>
+            {
+                string pwr = d.Power?.Level is int l ? $"{l}%" + (d.Power.IsCharging == true ? "⚡" : "") : (d.Endpoint.Product?.HasBattery == false ? "USB" : "待唤醒");
+                return $"{d.Endpoint.Name} {pwr}";
+            });
+            trayIcon.UpdateTooltip("Dareu Local · " + string.Join(" | ", parts));
+            return;
+        }
+        if (endpoint != null)
+        {
+            string pwr = selectedPower?.Level is int l ? $"{l}%" + (selectedPower.IsCharging == true ? "⚡" : "") : "已连接";
+            trayIcon.UpdateTooltip($"Dareu Local · {endpoint.Name} {pwr}");
+            return;
+        }
+        trayIcon.UpdateTooltip("Dareu Local · 未连接设备");
+    }
+
+    IReadOnlyList<TrayMenuItem> BuildTrayMenu()
+    {
+        var items = new List<TrayMenuItem>();
+        if (homeDevices.Count > 0)
+        {
+            foreach (var d in homeDevices)
+            {
+                string conn = d.Endpoint.Wireless ? "2.4G" : "USB";
+                string pwr = d.Power?.Level is int l ? $"{l}%" + (d.Power.IsCharging == true ? " 充电中" : "") : (d.Endpoint.Product?.HasBattery == false ? "USB 供电" : "待唤醒");
+                items.Add(new TrayMenuItem($"{d.Endpoint.Name} · {conn} · {pwr}", Disabled: true));
+            }
+        }
+        else if (endpoint != null)
+        {
+            string pwr = selectedPower?.Level is int l ? $"{l}%" : "已接入";
+            items.Add(new TrayMenuItem($"{endpoint.Name} · {pwr}", Disabled: true));
+        }
+        else
+        {
+            items.Add(new TrayMenuItem("未检测到设备", Disabled: true));
+        }
+
+        items.Add(new TrayMenuItem("", Separator: true));
+
+        if (endpoint != null && endpoint.CanConfigure)
+        {
+            int activeProfile = IsMouse ? (mouse?.Profile ?? 0) : (keyboard?.Profile ?? 0);
+            var availableProfiles = IsMouse ? new[] { 1, 2, 3, 4 } : keyboardProfiles;
+            items.Add(new TrayMenuItem($"切换 {endpoint.Name} 配置", Disabled: true));
+            foreach (int p in availableProfiles)
+            {
+                int profileId = p;
+                items.Add(new TrayMenuItem(
+                    appSettings.GetProfileDisplayName(endpoint.FamilyKey, profileId),
+                    () => _ = SwitchProfileAsync(profileId),
+                    Checked: profileId == activeProfile));
+            }
+            items.Add(new TrayMenuItem("", Separator: true));
+        }
+
+        items.Add(new TrayMenuItem("打开 Dareu Local", RestoreFromTray));
+        items.Add(new TrayMenuItem("隐藏到托盘", () => AppWindow.Hide()));
+        items.Add(new TrayMenuItem("", Separator: true));
+        items.Add(new TrayMenuItem("退出", ExitFromTray));
+        return items;
+    }
+
     void Overview(StackPanel body)
     {
         homeUpdates.Clear();
@@ -68,7 +157,7 @@ public sealed partial class MainWindow
         foreach (var e in preferred)
         {
             var cached = homeDevices.FirstOrDefault(x => x.Endpoint.Path == e.Path);
-            var state = cached ?? new HomeDevice(e, null, all.Any(x => x.FamilyKey == e.FamilyKey && x.Wireless) && all.Any(x => x.FamilyKey == e.FamilyKey && !x.Wireless), null);
+            var state = cached ?? new DashboardReading(e, null, all.Any(x => x.FamilyKey == e.FamilyKey && x.Wireless) && all.Any(x => x.FamilyKey == e.FamilyKey && !x.Wireless), null);
             tiles.Add(DeviceTile(state));
         }
         foreach (var tile in tiles)
@@ -98,7 +187,8 @@ public sealed partial class MainWindow
         body.Children.Add(grid);
         body.Children.Add(Text("点击设备卡片进入设置。电量与充电状态会自动更新。", 13));
     }
-    Button DeviceTile(HomeDevice state)
+
+    Button DeviceTile(DashboardReading state)
     {
         bool isMouse = state.Endpoint.Kind == DeviceKind.Mouse;
         string name = state.Endpoint.Name;
@@ -173,6 +263,7 @@ public sealed partial class MainWindow
         homeUpdates[state.Endpoint.FamilyKey] = next => { levelText.Text = next.Power?.Level is int n ? $"{n}%" : "—"; batteryGraphic.Content = BatteryIcon(next.Power); caption.Text = ChargeCaption(next.Endpoint, next.Power); caption.Foreground = next.Power?.IsCharging == true ? Green : Muted; bool ok = next.Power?.Level != null || next.Endpoint.Product?.HasBattery == false && next.Endpoint.Kind is DeviceKind.Mouse or DeviceKind.Keyboard; dot.Foreground = statusText.Foreground = ok ? Green : Orange; statusText.Text = ok ? "已连接" : next.Endpoint.Wireless ? "待唤醒" : "已接入"; hint.Text = next.HasBoth ? "有线与接收器均已接入，当前优先使用有线。" : next.Error != null ? (next.Endpoint.Wireless ? "请唤醒设备，再刷新状态。" : "暂时无法读取电量，请稍后刷新。") : "点击设备，进入设置  →"; AutomationProperties.SetName(tile, $"设置 {name}，{(next.Endpoint.Wireless ? "2.4G 无线" : "USB 有线")}，{PowerCaption(next.Power)}"); ToolTipService.SetToolTip(tile, next.Error ?? $"设置 {name}"); };
         return tile;
     }
+
     async Task OpenHomeDevice(string family)
     {
         var preferred = Hardware.PreferredEndpoints(Hardware.Endpoints());
@@ -197,14 +288,39 @@ public sealed partial class MainWindow
             Render();
         }
     }
-    static BitmapImage? ProductImage(ProductDefinition? product)
+
+    BitmapImage? ProductImage(ProductDefinition? product)
     {
         if (product == null)
             return null;
-        string local = Path.Combine(AppContext.BaseDirectory, "Assets", product.Image);
+
+        string pidPng = $"{product.Pid:x4}.png";
+        string localAppDevices = Path.Combine(controller.UserFolder, "Assets", "Devices", pidPng);
+        if (File.Exists(localAppDevices))
+            return new BitmapImage(new Uri(localAppDevices));
+
+        if (!string.IsNullOrWhiteSpace(product.Image))
+        {
+            string localAppImg = Path.Combine(controller.UserFolder, "Assets", product.Image);
+            if (File.Exists(localAppImg))
+                return new BitmapImage(new Uri(localAppImg));
+        }
+
+        string appDirDevices = Path.Combine(AppContext.BaseDirectory, "Assets", "Devices", pidPng);
+        if (File.Exists(appDirDevices))
+            return new BitmapImage(new Uri(appDirDevices));
+
+        if (!string.IsNullOrWhiteSpace(product.Image))
+        {
+            string appDirImg = Path.Combine(AppContext.BaseDirectory, "Assets", product.Image);
+            if (File.Exists(appDirImg))
+                return new BitmapImage(new Uri($"ms-appx:///Assets/{product.Image}"));
+        }
+
         string art = product.Type == 0 ? "GenericMouse.png" : product.Type == 1 ? "GenericKeyboard.png" : "GenericReceiver.png";
-        return File.Exists(local) ? new BitmapImage(new Uri($"ms-appx:///Assets/{product.Image}")) : new BitmapImage(new Uri($"ms-appx:///Assets/{art}"));
+        return new BitmapImage(new Uri($"ms-appx:///Assets/{art}"));
     }
+
     static string ChargeCaption(DeviceEndpoint endpoint, PowerReading? power) => endpoint.Product?.HasBattery == false ? "USB 供电" : power?.StateText ?? "状态未知";
     static string PowerCaption(PowerReading? power) => power == null ? "电量未知" : $"{(power.Level is int level ? $"{level}%" : "电量未知")} · {power.StateText}";
     static Grid BatteryIcon(PowerReading? power)

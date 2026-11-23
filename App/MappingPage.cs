@@ -1,8 +1,11 @@
+using Microsoft.UI.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media;
 using DareuLocal.Core;
-using Windows.UI;
+using Windows.System;
+using Windows.UI.Core;
 namespace DareuLocal.App;
 public sealed partial class MainWindow
 {
@@ -20,6 +23,13 @@ public sealed partial class MainWindow
         v.AddRange(new[] { new Choice(70, "Print Screen"), new Choice(71, "Scroll Lock"), new Choice(72, "Pause"), new Choice(73, "Insert"), new Choice(74, "Home"), new Choice(75, "Page Up"), new Choice(76, "Delete"), new Choice(77, "End"), new Choice(78, "Page Down"), new Choice(79, "→"), new Choice(80, "←"), new Choice(81, "↓"), new Choice(82, "↑"), new Choice(224, "Left Ctrl"), new Choice(225, "Left Shift"), new Choice(226, "Left Alt"), new Choice(227, "Left Win"), new Choice(228, "Right Ctrl"), new Choice(229, "Right Shift"), new Choice(230, "Right Alt"), new Choice(231, "Right Win") });
         return v;
     }
+
+    static bool IsModifierVirtualKey(VirtualKey key) => key is
+        VirtualKey.Control or VirtualKey.LeftControl or VirtualKey.RightControl or
+        VirtualKey.Shift or VirtualKey.LeftShift or VirtualKey.RightShift or
+        VirtualKey.Menu or VirtualKey.LeftMenu or VirtualKey.RightMenu or
+        VirtualKey.LeftWindows or VirtualKey.RightWindows;
+
     void Mapping(StackPanel body)
     {
         bool isMouse = IsMouse;
@@ -28,6 +38,7 @@ public sealed partial class MainWindow
         var selectedLabel = Text(isMouse ? "左键" : keyLayout.First(k => k.Id == selected).Label, 20);
         var current = Text("正在读取当前映射…");
         var original = Text("", 12);
+        var batchStatus = Text("", 12);
         var layer = new RadioButtons { ItemsSource = new[] { "标准模式", "Fn 模式" }, MaxColumns = 2, SelectedIndex = 0,
             Visibility = isMouse ? Visibility.Collapsed : Visibility.Visible };
         var functions = new[] { new Choice(6, "键盘按键 / 快捷键"), new Choice(1, "鼠标功能"), new Choice(8, "多媒体"),
@@ -37,46 +48,216 @@ public sealed partial class MainWindow
             (x.Id != 30 || owner?.Product?.HasLighting == true));
         var type = Choices("功能分类", allowed);
         var keyCode = Choices("目标按键", HidKeys());
+
+        var captureKey = new ToggleButton { Content = "按键录入", VerticalAlignment = VerticalAlignment.Bottom, Padding = new Thickness(12, 6, 12, 6) };
+        var keyRow = new Grid { ColumnSpacing = 8 };
+        keyRow.ColumnDefinitions.Add(new() { Width = new GridLength(1, GridUnitType.Star) });
+        keyRow.ColumnDefinitions.Add(new() { Width = GridLength.Auto });
+        keyRow.Children.Add(keyCode);
+        Grid.SetColumn(captureKey, 1);
+        keyRow.Children.Add(captureKey);
+
         var mouseCode = Choices("鼠标操作", new[] { new Choice(1, "左键"), new Choice(2, "右键"), new Choice(3, "中键"), new Choice(4, "后退"), new Choice(5, "前进") });
         var media = Choices("多媒体操作", new[] { new Choice(0xe9, "音量增加"), new Choice(0xea, "音量减少"), new Choice(0xe2, "静音"), new Choice(0xcd, "播放 / 暂停"), new Choice(0xb5, "下一曲"), new Choice(0xb6, "上一曲") });
+        var macroLoopMode = Choices("宏触发模式", new[] { new Choice(12, "重复指定次数"), new Choice(13, "按住时循环"), new Choice(14, "点击开关循环"), new Choice(15, "松开后停止") }, 12);
         var slot = Number("宏槽位", 1, 1, isMouse ? 6 : 16);
         var repeat = Number("重复次数", 1, 1, 250);
         var ctrl = new CheckBox { Content = "Ctrl" }; var shift = new CheckBox { Content = "Shift" };
         var alt = new CheckBox { Content = "Alt" }; var win = new CheckBox { Content = "Win" };
         var mods = Row(ctrl, shift, alt, win);
         var fields = Column(8);
-        foreach (var element in new UIElement[] { keyCode, mouseCode, media, slot, repeat }) fields.Children.Add(element);
+        foreach (var element in new UIElement[] { keyRow, mouseCode, media, macroLoopMode, slot, repeat }) fields.Children.Add(element);
         Func<Task>? undo = null;
         Button save = null!;
         Button undoButton = null!;
+        CancellationTokenSource? batchReadCts = null;
+
+        Action<int, string, bool>? updateMouseBadge = null;
+        var kbKeyButtons = new Dictionary<byte, (Button Button, KeyChoice Key, bool IsRotary)>();
+
         bool Here() => page == "mapping" && ReferenceEquals(endpoint, owner) && ReferenceEquals(WorkArea.Content, body);
+
+        void CancelBatchRead()
+        {
+            batchReadCts?.Cancel();
+            batchReadCts?.Dispose();
+            batchReadCts = null;
+        }
+        leaveCurrentPageCleanup = CancelBatchRead;
+
         void Update()
         {
             int f = type.SelectedItem is Choice c ? c.Id : -1;
-            keyCode.Visibility = mods.Visibility = f == 6 ? Visibility.Visible : Visibility.Collapsed;
+            keyRow.Visibility = mods.Visibility = f == 6 ? Visibility.Visible : Visibility.Collapsed;
             mouseCode.Visibility = f == 1 ? Visibility.Visible : Visibility.Collapsed;
             media.Visibility = f == 8 ? Visibility.Visible : Visibility.Collapsed;
-            slot.Visibility = repeat.Visibility = f == 12 ? Visibility.Visible : Visibility.Collapsed;
+            macroLoopMode.Visibility = !isMouse && f == 12 ? Visibility.Visible : Visibility.Collapsed;
+            slot.Visibility = f == 12 ? Visibility.Visible : Visibility.Collapsed;
+            bool showRepeat = f == 12 && (isMouse || macroLoopMode.SelectedItem is not Choice mc || mc.Id == 12);
+            repeat.Visibility = showRepeat ? Visibility.Visible : Visibility.Collapsed;
             if (isMouse) { slot.Header = "宏槽位（跟随所选按键）"; slot.Value = selected; slot.IsEnabled = false; }
             if (save != null) save.IsEnabled = f >= 0;
         }
         void Choose(ComboBox box, int id) => box.SelectedItem = ((List<Choice>)box.ItemsSource).FirstOrDefault(c => c.Id == id);
         void Populate(Assignment a)
         {
-            Choose(type, a.Function);
+            int uiFunc = !isMouse && a.Function is 12 or 13 or 14 or 15 ? 12 : a.Function;
+            Choose(type, uiFunc);
             ctrl.IsChecked = (a.Data[0] & 1) != 0; shift.IsChecked = (a.Data[0] & 2) != 0;
             alt.IsChecked = (a.Data[0] & 4) != 0; win.IsChecked = (a.Data[0] & 8) != 0;
             if (a.Function == 6) { Choose(keyCode, a.Data[1]); if (keyCode.SelectedItem == null || (a.Data[0] & 240) != 0) type.SelectedItem = null; }
             if (a.Function == 1) { Choose(mouseCode, a.Data[0]); if (mouseCode.SelectedItem == null) type.SelectedItem = null; }
             if (a.Function == 8) { Choose(media, a.Data[1]); if (media.SelectedItem == null) type.SelectedItem = null; }
-            if (a.Function == 12)
+            if (a.Function is 12 or 13 or 14 or 15)
             {
-                int times = (a.Data[1] << 8) | a.Data[2];
-                if (a.Data[0] is < 1 or > 16 || times is < 1 or > 250) type.SelectedItem = null;
+                Choose(macroLoopMode, a.Function);
+                int times = Math.Clamp((a.Data[1] << 8) | a.Data[2], 1, 250);
+                if (a.Data[0] is < 1 or > 16) type.SelectedItem = null;
                 else { slot.Value = a.Data[0]; repeat.Value = times; }
             }
             Update();
         }
+
+        captureKey.Checked += (_, _) => { captureKey.Content = "请按下按键…"; };
+        captureKey.Unchecked += (_, _) => { captureKey.Content = "按键录入"; };
+        captureKey.LostFocus += (_, _) => { if (captureKey.IsChecked == true) captureKey.IsChecked = false; };
+        bool justCaptured = false;
+        captureKey.PreviewKeyUp += (_, e) =>
+        {
+            if (justCaptured)
+            {
+                justCaptured = false;
+                e.Handled = true;
+            }
+        };
+        captureKey.PreviewKeyDown += (_, e) =>
+        {
+            if (captureKey.IsChecked != true)
+                return;
+            e.Handled = true;
+            if (IsModifierVirtualKey(e.Key))
+                return;
+            int hid = VirtualToHid((int)e.Key);
+            if (hid == 0)
+                return;
+
+            static bool IsDown(VirtualKey vk) => InputKeyboardSource.GetKeyStateForCurrentThread(vk).HasFlag(CoreVirtualKeyStates.Down);
+            Choose(type, 6);
+            Choose(keyCode, hid);
+            ctrl.IsChecked = IsDown(VirtualKey.Control);
+            shift.IsChecked = IsDown(VirtualKey.Shift);
+            alt.IsChecked = IsDown(VirtualKey.Menu);
+            win.IsChecked = IsDown(VirtualKey.LeftWindows) || IsDown(VirtualKey.RightWindows);
+            Update();
+            justCaptured = true;
+            captureKey.IsChecked = false;
+        };
+
+        void ApplyKeyboardVisualBadge(byte keyId, Assignment value, byte currentLayer)
+        {
+            if (!kbKeyButtons.TryGetValue(keyId, out var entry))
+                return;
+            var expected = currentLayer == 0 ? entry.Key.Default : entry.Key.FnDefault;
+            bool modified = !value.Bytes().SequenceEqual(expected.Bytes());
+            string desc = Describe(value);
+
+            entry.Button.BorderBrush = modified ? ThemePalette.AccentText : ThemePalette.Border;
+            entry.Button.BorderThickness = new Thickness(modified ? 1.5 : 1);
+            ToolTipService.SetToolTip(entry.Button, $"{entry.Key.Label}\n当前映射：{desc}");
+
+            if (!entry.IsRotary && modified && entry.Key.Width >= 34)
+            {
+                var stack = new StackPanel { Spacing = 0, HorizontalAlignment = HorizontalAlignment.Center };
+                stack.Children.Add(new TextBlock { Text = entry.Key.Label, FontSize = 9, TextAlignment = TextAlignment.Center });
+                stack.Children.Add(new TextBlock
+                {
+                    Text = ShortMappingTag(desc),
+                    FontSize = 8,
+                    Foreground = ThemePalette.AccentText,
+                    TextAlignment = TextAlignment.Center,
+                    TextTrimming = TextTrimming.CharacterEllipsis
+                });
+                entry.Button.Content = stack;
+            }
+            else if (!entry.IsRotary)
+            {
+                entry.Button.Content = entry.Key.Label;
+            }
+        }
+
+        void ApplyMouseVisualBadge(int btnId, byte[] raw)
+        {
+            string desc = DescribeMouse(raw);
+            bool modified = !IsDefaultMouseButton(btnId, raw);
+            updateMouseBadge?.Invoke(btnId, desc, modified);
+        }
+
+        async Task BatchReadAllKeysAsync(int targetLayer)
+        {
+            CancelBatchRead();
+            var cts = new CancellationTokenSource();
+            batchReadCts = cts;
+            var ct = cts.Token;
+
+            try
+            {
+                if (isMouse)
+                {
+                    batchStatus.Text = "正在读取全部鼠标按键映射…";
+                    int count = Math.Clamp(owner?.Product?.ButtonCount ?? 6, 1, 6);
+                    var all = await WithMouse(d =>
+                    {
+                        var list = new List<(int Id, byte[] Raw)>(count);
+                        for (int id = 1; id <= count; id++)
+                        {
+                            ct.ThrowIfCancellationRequested();
+                            list.Add((id, d.ReadButton(id)));
+                        }
+                        return list;
+                    }, ct);
+                    if (!Here() || ct.IsCancellationRequested) return;
+                    foreach (var (id, raw) in all)
+                        ApplyMouseVisualBadge(id, raw);
+                    batchStatus.Text = $"已同步全部 {count} 个按键映射";
+                }
+                else
+                {
+                    int total = keyLayout.Count;
+                    int done = 0;
+                    batchStatus.Text = $"正在读取键位映射（0/{total}）…";
+                    foreach (var chunk in keyLayout.Chunk(12))
+                    {
+                        if (!Here() || ct.IsCancellationRequested || layer.SelectedIndex != targetLayer)
+                            return;
+                        var batch = await WithKeyboard(d =>
+                        {
+                            var items = new List<(byte Id, Assignment Value)>(chunk.Length);
+                            foreach (var k in chunk)
+                            {
+                                ct.ThrowIfCancellationRequested();
+                                items.Add((k.Id, d.ReadAssignment(k.Id, (byte)targetLayer)));
+                            }
+                            return items;
+                        }, ct);
+                        if (!Here() || ct.IsCancellationRequested || layer.SelectedIndex != targetLayer)
+                            return;
+                        foreach (var (id, val) in batch)
+                            ApplyKeyboardVisualBadge(id, val, (byte)targetLayer);
+                        done += batch.Count;
+                        batchStatus.Text = done < total
+                            ? $"正在读取键位映射（{done}/{total}）…"
+                            : $"已同步全部 {total} 个键位（{(targetLayer == 0 ? "标准层" : "Fn 层")}）";
+                    }
+                }
+            }
+            catch (OperationCanceledException) { }
+            catch (Exception ex)
+            {
+                if (Here())
+                    batchStatus.Text = "批量读取部分中断：" + ex.Message;
+            }
+        }
+
         async Task ReadSelected()
         {
             if (!Here()) return;
@@ -90,6 +271,7 @@ public sealed partial class MainWindow
                     if (!Here() || selected != key) return;
                     current.Text = "当前映射：" + DescribeMouse(raw);
                     original.Text = "";
+                    ApplyMouseVisualBadge(key, raw);
                     int f = raw[0] switch { 0 => 0, 1 => 1, 2 => raw[1] switch { 1 => 19, 2 => 16, 3 => 17, _ => -1 }, 4 when raw[2] == 2 => 2, 6 => 12, 8 => 30, 9 => 27, _ => -1 };
                     Choose(type, f);
                     if (f == 1) { int id = Array.IndexOf(new byte[] { 1, 2, 4, 8, 16 }, raw[1]) + 1; Choose(mouseCode, id); if (id == 0) type.SelectedItem = null; }
@@ -104,6 +286,7 @@ public sealed partial class MainWindow
                     current.Text = "当前映射：" + Describe(value);
                     var layoutKey = keyLayout.First(x => x.Id == key);
                     original.Text = "出厂映射：" + Describe(selectedLayer == 0 ? layoutKey.Default : layoutKey.FnDefault);
+                    ApplyKeyboardVisualBadge((byte)key, value, (byte)selectedLayer);
                     Populate(value);
                     if (type.SelectedItem == null) current.Text += "；此映射可查看，选择功能分类可重新设置。";
                 }
@@ -117,7 +300,13 @@ public sealed partial class MainWindow
             return Run(ReadSelected, "已读取所选按键映射");
         }
         type.SelectionChanged += (_, _) => Update();
-        layer.SelectionChanged += async (_, _) => { if (Here()) await Run(ReadSelected, "已读取此层映射"); };
+        macroLoopMode.SelectionChanged += (_, _) => Update();
+        layer.SelectionChanged += async (_, _) =>
+        {
+            if (!Here()) return;
+            await Run(ReadSelected, "已读取此层映射");
+            _ = BatchReadAllKeysAsync(layer.SelectedIndex);
+        };
         undoButton = ActionButton("撤销上一次改键", async () =>
         {
             if (undo == null) return;
@@ -174,14 +363,23 @@ public sealed partial class MainWindow
                 byte b = (byte)selected, l = (byte)layer.SelectedIndex;
                 var old = await WithKeyboard(d => d.ReadAssignment(b, l));
                 nextUndo = () => KeyWrite(d => d.SetAssignment(b, l, old));
-                var value = f switch
+                Assignment value;
+                if (f == 12)
                 {
-                    6 => Assignment.Keyboard((byte)Id(keyCode), modifier),
-                    1 => Assignment.Mouse((byte)Id(mouseCode)),
-                    8 => new Assignment(8, new byte[] { 0, (byte)Id(media), 0, 0, 0 }),
-                    12 => new Assignment(12, new byte[] { (byte)Integer(slot), (byte)(Integer(repeat) >> 8), (byte)Integer(repeat), 0, 0 }),
-                    _ => new Assignment((byte)f, new byte[5])
-                };
+                    byte macroFunc = (byte)Id(macroLoopMode);
+                    int times = macroFunc == 12 ? Integer(repeat) : 1;
+                    value = new Assignment(macroFunc, new byte[] { (byte)Integer(slot), (byte)(times >> 8), (byte)times, 0, 0 });
+                }
+                else
+                {
+                    value = f switch
+                    {
+                        6 => Assignment.Keyboard((byte)Id(keyCode), modifier),
+                        1 => Assignment.Mouse((byte)Id(mouseCode)),
+                        8 => new Assignment(8, new byte[] { 0, (byte)Id(media), 0, 0, 0 }),
+                        _ => new Assignment((byte)f, new byte[5])
+                    };
+                }
                 await KeyWrite(d => d.SetAssignment(b, l, value));
             }
             undo = nextUndo; undoButton.IsEnabled = true;
@@ -220,7 +418,7 @@ public sealed partial class MainWindow
         var summary = new Grid { ColumnSpacing = 16 };
         summary.ColumnDefinitions.Add(new() { Width = GridLength.Auto }); summary.ColumnDefinitions.Add(new());
         summary.Children.Add(selectedLabel); Grid.SetColumn(current, 1); summary.Children.Add(current);
-        var editor = Card($"按键设置 · Profile {(isMouse ? mouse!.Profile : keyboard!.Profile)}", layer, summary, original, editorGrid, mods, actions);
+        var editor = Card($"按键设置 · {appSettings.GetProfileDisplayName(owner?.FamilyKey, isMouse ? mouse!.Profile : keyboard!.Profile)}", layer, summary, original, batchStatus, editorGrid, mods, actions);
         ((StackPanel)editor.Child).Spacing = 8;
         void ArrangeActions(double width)
         {
@@ -237,7 +435,7 @@ public sealed partial class MainWindow
         if (isMouse)
         {
             body.Children.Remove(editor);
-            body.Children.Add(MouseMappingDiagram((id, label) => { _ = SelectKey(id, label); }));
+            body.Children.Add(MouseMappingDiagram((id, label) => { _ = SelectKey(id, label); }, updater => updateMouseBadge = updater));
             body.Children.Add(editor);
         }
         else
@@ -254,16 +452,48 @@ public sealed partial class MainWindow
                 b.Width = Math.Max(24, key.Width - 3); b.Height = Math.Max(24, key.Height - 3);
                 b.Padding = new Thickness(1); b.FontSize = 10;
                 b.Background = key.Id == selected ? ThemePalette.SelectedKey : ThemePalette.Key;
+                b.BorderThickness = new Thickness(1);
+                b.BorderBrush = ThemePalette.Border;
                 Canvas.SetLeft(b, key.X - minX); Canvas.SetTop(b, key.Y - minY);
                 ToolTipService.SetToolTip(b, key.Label);
                 buttons.Add(b); b.Click += (_, _) => b.Background = ThemePalette.SelectedKey; canvas.Children.Add(b);
+                kbKeyButtons[key.Id] = (b, key, false);
             }
             AddRotaryControls(canvas, rotaryGroups, minX, minY, (key, name) => { _ = SelectKey(key.Id, name); }, buttons);
+            foreach (var g in rotaryGroups)
+                foreach (var rk in g.Keys)
+                {
+                    var match = buttons.FirstOrDefault(btn => ToolTipService.GetToolTip(btn)?.ToString()?.Contains(rk == g.Left ? "左转" : rk == g.Right ? "右转" : "按下") == true);
+                    if (match != null)
+                        kbKeyButtons[rk.Id] = (match, rk, true);
+                }
             body.Children.Add(Card("选择键盘按键", new Viewbox { Child = canvas, Stretch = Stretch.Uniform, MaxHeight = 300, HorizontalAlignment = HorizontalAlignment.Stretch }));
         }
         Update();
-        ReadPageOnLoad(editor, body, ReadSelected, "已读取当前映射");
+        ReadPageOnLoad(editor, body, async () =>
+        {
+            await ReadSelected();
+            _ = BatchReadAllKeysAsync(layer.SelectedIndex);
+        }, "已读取当前映射");
     }
+
+    static bool IsDefaultMouseButton(int buttonId, byte[] raw) => buttonId switch
+    {
+        1 => raw[0] == 1 && raw[1] == 1,
+        2 => raw[0] == 1 && raw[1] == 2,
+        3 => raw[0] == 1 && raw[1] == 4,
+        4 => raw[0] == 1 && raw[1] == 8,
+        5 => raw[0] == 1 && raw[1] == 16,
+        6 => raw[0] == 2 && raw[1] == 1,
+        _ => false
+    };
+
+    static string ShortMappingTag(string desc)
+    {
+        string clean = desc.Replace(" + ", "+").Replace("鼠标", "");
+        return clean.Length <= 5 ? clean : clean[..5];
+    }
+
     static string MediaName(int code) => code switch
     {
         0xe9 => "音量增加", 0xea => "音量减少", 0xe2 => "静音", 0xcd => "播放 / 暂停", 0xb5 => "下一曲", 0xb6 => "上一曲", _ => $"多媒体 0x{code:X}"
@@ -281,7 +511,10 @@ public sealed partial class MainWindow
         return a.Function switch
         {
             0 => "禁用", 1 => MouseName(a.Data[0]), 2 => "双击左键", 8 => MediaName(a.Data[1]),
-            12 => $"宏 {a.Data[0]} · {(a.Data[1] << 8) | a.Data[2]} 次", 13 or 14 or 15 => $"宏 {a.Data[0]} · 模式 {a.Function}",
+            12 => $"宏 {a.Data[0]} · {(a.Data[1] << 8) | a.Data[2]} 次",
+            13 => $"宏 {a.Data[0]} · 按住循环",
+            14 => $"宏 {a.Data[0]} · 开关循环",
+            15 => $"宏 {a.Data[0]} · 松开停止",
             16 => "DPI 增加", 17 => "DPI 减少", 19 => "DPI 循环", 27 => "切换配置", 30 => "切换灯光", 47 => "锁定 Win 键",
             _ => $"设备功能 {a.Function} · {Convert.ToHexString(a.Data)}"
         };

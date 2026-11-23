@@ -176,6 +176,86 @@ if (args.Contains("--power-only"))
     }
     return;
 }
+if (args.Contains("--watch-mouse"))
+{
+    DeviceIdentityProbe.ResolveReceivers();
+    var endpoint = Hardware.PreferredEndpoints(Hardware.Endpoints())
+        .FirstOrDefault(x => x.Kind == DeviceKind.Mouse && x.CanConfigure);
+    if (endpoint == null)
+    {
+        Console.WriteLine("未发现支持配置的 JM 鼠标，请先连接 USB 或 2.4G 接收器。");
+        Environment.ExitCode = 1;
+        return;
+    }
+
+    bool driverMode = args.Contains("--driver-mode");
+    Console.WriteLine($"ENDPOINT {endpoint.Label} (PID {endpoint.Pid:X4}, Logical {endpoint.LogicalPid:X4})");
+
+    MouseState before;
+    using (var d = new JmMouse(endpoint))
+        before = d.ReadState();
+    Console.WriteLine($"BEFORE Profile={before.Profile} Stage={before.Stage} DPI={string.Join("/", before.Dpi)}");
+
+    using var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(20));
+    Console.CancelKeyPress += (_, e) =>
+    {
+        e.Cancel = true;
+        cancel.Cancel();
+    };
+
+    int reportLength = Math.Max(17, endpoint.Device.GetMaxInputReportLength());
+    using (var stream = endpoint.Device.Open())
+    {
+        stream.ReadTimeout = 500;
+        stream.WriteTimeout = 700;
+        try
+        {
+            if (driverMode)
+            {
+                stream.Write(JmMouse.Packet(2, count: 1, payload: new byte[] { 1 }));
+                Console.WriteLine("SENT SetDriverMode(1)");
+            }
+
+            Console.WriteLine("请在 20 秒内按下鼠标上的 DPI 键（按 Ctrl+C 可提前结束）...");
+            while (!cancel.IsCancellationRequested)
+            {
+                var buf = new byte[reportLength];
+                try
+                {
+                    int n = stream.Read(buf);
+                    if (n > 0)
+                    {
+                        string cmd = n > 1 ? $"0x{buf[1]:X2}" : "--";
+                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] LEN={n} ID=0x{buf[0]:X2} CMD={cmd} DATA={Convert.ToHexString(buf.AsSpan(0, n))}");
+                    }
+                }
+                catch (TimeoutException) { }
+            }
+        }
+        finally
+        {
+            if (driverMode)
+            {
+                try
+                {
+                    stream.Write(JmMouse.Packet(2, count: 1, payload: new byte[] { 0 }));
+                    Console.WriteLine("SENT SetDriverMode(0)");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("WARN SetDriverMode(0) failed: " + ex.Message);
+                }
+            }
+        }
+    }
+
+    using (var d = new JmMouse(endpoint))
+    {
+        var after = d.ReadState();
+        Console.WriteLine($"AFTER  Profile={after.Profile} Stage={after.Stage} DPI={string.Join("/", after.Dpi)}");
+    }
+    return;
+}
 Console.WriteLine("ENDPOINTS " + string.Join("; ", Hardware.Endpoints().Select(x => x.Label)));
 foreach (var endpoint in Hardware.Endpoints().Where(x => !x.Wireless))
 {
