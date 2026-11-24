@@ -1,6 +1,118 @@
+using System.Collections.Concurrent;
+
 namespace DareuLocal.Core;
 public sealed partial class TgKeyboard
 {
+    static readonly ConcurrentDictionary<string, bool> bulkAssignSupport = new();
+
+    public static byte[] BulkAssignRequestPayload(IReadOnlyList<byte> keys, byte layer)
+    {
+        ArgumentNullException.ThrowIfNull(keys);
+        if (keys.Count < 1 || keys.Count > 7)
+            throw new ArgumentOutOfRangeException(nameof(keys), "单次批量读取最多支持 1–7 个按键");
+        if (layer > 1)
+            throw new ArgumentOutOfRangeException(nameof(layer));
+
+        var payload = new byte[1 + 8 * keys.Count];
+        payload[0] = (byte)keys.Count;
+        for (int i = 0; i < keys.Count; i++)
+        {
+            payload[1 + 8 * i] = keys[i];
+            payload[1 + 8 * i + 1] = layer;
+        }
+        return payload;
+    }
+
+    public static Assignment[] ParseBulkAssignReply(ReadOnlySpan<byte> reply, int count)
+    {
+        if (count < 1 || count > 7 || reply.Length < 6 + 8 * count + 1)
+            throw new IOException("批量按键读取响应长度无效");
+        var result = new Assignment[count];
+        for (int i = 0; i < count; i++)
+        {
+            int baseOffset = 6 + 8 * i;
+            byte functionId = reply[baseOffset + 3];
+            byte[] data = reply.Slice(baseOffset + 4, 5).ToArray();
+            result[i] = new Assignment(functionId, data);
+        }
+        return result;
+    }
+
+    public Assignment[] ReadAssignmentsBulk(IReadOnlyList<byte> keys, byte layer)
+    {
+        ArgumentNullException.ThrowIfNull(keys);
+        if (layer > 1)
+            throw new ArgumentOutOfRangeException(nameof(layer));
+        if (keys.Count == 0)
+            return Array.Empty<Assignment>();
+
+        if (bulkAssignSupport.TryGetValue(Endpoint.Path, out bool supported) && !supported)
+            return keys.Select(k => ReadAssignment(k, layer)).ToArray();
+
+        var result = new List<Assignment>(keys.Count);
+        for (int offset = 0; offset < keys.Count; offset += 7)
+        {
+            var chunk = keys.Skip(offset).Take(7).ToArray();
+            try
+            {
+                var payload = BulkAssignRequestPayload(chunk, layer);
+                var reply = Exchange(1, 0x88, (byte)Profile, payload.Length, payload);
+                result.AddRange(ParseBulkAssignReply(reply, chunk.Length));
+            }
+            catch (IOException)
+            {
+                bulkAssignSupport[Endpoint.Path] = false;
+                for (int i = offset; i < keys.Count; i++)
+                    result.Add(ReadAssignment(keys[i], layer));
+                return result.ToArray();
+            }
+        }
+
+        bulkAssignSupport[Endpoint.Path] = true;
+        return result.ToArray();
+    }
+
+    public bool? TryReadSocd()
+    {
+        try
+        {
+            var reply = Exchange(1, 0x89, (byte)Profile, 1);
+            return reply[6] is 0 or 1 ? reply[6] == 1 : null;
+        }
+        catch (IOException)
+        {
+            return null;
+        }
+        catch (TimeoutException)
+        {
+            return null;
+        }
+    }
+
+    public void SetSocd(bool enabled)
+    {
+        Exchange(1, 9, (byte)Profile, 1, (byte)(enabled ? 1 : 0));
+        if (TryReadSocd() != enabled)
+            throw new IOException("SOCD 设置读回不一致");
+    }
+
+    public (bool WinLocked, bool MacMode)? TryReadWinMacState()
+    {
+        try
+        {
+            var reply = Exchange(1, 0x86, (byte)Profile, 2);
+            return (reply[6] != 0, reply[7] != 0);
+        }
+        catch (IOException)
+        {
+            return null;
+        }
+        catch (TimeoutException)
+        {
+            return null;
+        }
+    }
+
     public Assignment ReadAssignment(byte key, byte layer)
     {
         var b = ReadKey(key, layer);

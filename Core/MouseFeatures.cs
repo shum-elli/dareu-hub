@@ -163,11 +163,75 @@ public sealed partial class JmMouse
         if (!ReadMacroRaw(slot).SequenceEqual(raw))
             throw new IOException("鼠标宏读回不一致");
     }
-    public void BindMacro(int button, int repeats)
+    public static byte[] EncodeTurboButton(int intervalMs)
     {
-        if (repeats < 1 || repeats > 250)
-            throw new ArgumentException("重复次数 1–250");
-        SetButton(button, new byte[] { 6, (byte)(button - 1), (byte)repeats });
+        if (intervalMs < 10 || intervalMs > 255)
+            throw new ArgumentOutOfRangeException(nameof(intervalMs), "连发间隔需为 10–255 ms");
+        return new byte[] { 4, (byte)intervalMs, 0 };
+    }
+
+    public static byte[] EncodeSniperDpi(int dpi)
+    {
+        if (dpi < 100 || dpi > 12800 || dpi % 50 != 0)
+            throw new ArgumentOutOfRangeException(nameof(dpi), "狙击键 DPI 需为 100–12800 且为 50 的倍数");
+        return new byte[] { 10, (byte)((dpi - 100) / 50 + 1), 0 };
+    }
+
+    public static int DecodeSniperDpi(byte rawCode)
+    {
+        if (rawCode < 1)
+            throw new ArgumentOutOfRangeException(nameof(rawCode));
+        return 100 + (rawCode - 1) * 50;
+    }
+
+    public bool? TryReadLongDistanceMode()
+    {
+        try
+        {
+            var reply = Exchange(Packet(23));
+            if (reply[1] == 0 && reply[5] is 0 or 1)
+                return reply[5] == 1;
+            return null;
+        }
+        catch (IOException)
+        {
+            return null;
+        }
+        catch (TimeoutException)
+        {
+            return null;
+        }
+    }
+
+    public void SetLongDistanceMode(bool enabled)
+    {
+        Exchange(Packet(22, count: 10, payload: new[] { (byte)(enabled ? 1 : 0) }));
+    }
+
+    public int? TryReadDongleFirmware()
+    {
+        if (!Endpoint.Wireless)
+            return null;
+        try
+        {
+            var reply = Exchange(Packet(29));
+            return reply[5] << 8 | reply[6];
+        }
+        catch (IOException)
+        {
+            return null;
+        }
+        catch (TimeoutException)
+        {
+            return null;
+        }
+    }
+
+    public void BindMacro(int button, int repeatsOrMode)
+    {
+        if (repeatsOrMode is not ((>= 1 and <= 250) or 253 or 254 or 255))
+            throw new ArgumentException("重复次数需为 1–250，或触发模式 253–255");
+        SetButton(button, new byte[] { 6, (byte)(button - 1), (byte)repeatsOrMode });
     }
     public void RestoreButton(int button, byte[] assignment, byte[] keys)
     {

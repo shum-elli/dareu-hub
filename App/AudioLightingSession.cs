@@ -92,7 +92,7 @@ public sealed class AudioLightingSession
 
     static Parameters CreateParameters(int mode, byte[] color, double gain, double brightness)
     {
-        if (mode is < 0 or > 3 || color.Length != 3 || !double.IsFinite(gain) || gain is < 1 or > 60 ||
+        if (mode is < 0 or > 4 || color.Length != 3 || !double.IsFinite(gain) || gain is < 1 or > 60 ||
             !double.IsFinite(brightness) || brightness is < 0 or > 1)
             throw new ArgumentException("音乐律动参数无效");
         return new(mode, color.ToArray(), gain, brightness);

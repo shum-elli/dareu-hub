@@ -648,6 +648,7 @@ public sealed partial class MainWindow : Window
             sensorHost.Children.Add(Text("读取后显示设备当前的传感器参数。"));
             var sensorCard = Card("传感器与引擎", sensorHost);
 
+            bool? mouseLongDistance = null;
             Action? applySensor = null;
             Action? revertSensor = null;
 
@@ -664,12 +665,13 @@ public sealed partial class MainWindow : Window
 
             async Task ReadSensor()
             {
-                var reading = await WithMouse(d => (State: d.ReadState(), Sensor: d.ReadSensor()));
+                var reading = await WithMouse(d => (State: d.ReadState(), Sensor: d.ReadSensor(), LongDistance: d.TryReadLongDistanceMode()));
                 controller.UpdateObservedMouseState(reading.State, endpoint!.Path);
                 mouseSensor = reading.Sensor;
                 mouseSensorPath = endpoint!.Path;
                 mouseSensorProfile = reading.State.Profile;
                 mouseSensorReadAt = DateTime.Now;
+                mouseLongDistance = reading.LongDistance;
                 polling.SelectedItem = ((List<Choice>)polling.ItemsSource).FirstOrDefault(x => x.Id == reading.State.PollingId);
                 ShowSensor(reading.Sensor);
                 engineStatus.Text = $"已同步设备参数 · {mouseSensorReadAt:HH:mm:ss}";
@@ -722,6 +724,12 @@ public sealed partial class MainWindow : Window
                 if (ripple != null) panel.Children.Add(ripple);
                 else if (supports.Contains(4)) panel.Children.Add(Text("波纹修正：设备未返回可用值"));
 
+                bool? longDistBaseline = mouseLongDistance;
+                ToggleSwitch? longDistance = longDistBaseline is bool ldInit
+                    ? new ToggleSwitch { Header = "远距离抗干扰模式", IsOn = ldInit, OnContent = "开启", OffContent = "关闭" }
+                    : null;
+                if (longDistance != null) panel.Children.Add(longDistance);
+
                 void Revert()
                 {
                     if (engineRadio != null && s.Mode is >= 0 and <= 2) engineRadio.SelectedIndex = s.Mode;
@@ -730,6 +738,7 @@ public sealed partial class MainWindow : Window
                     response.Value = s.Response;
                     if (angle != null) angle.IsOn = s.Angle == 1;
                     if (ripple != null) ripple.IsOn = s.Ripple == 1;
+                    if (longDistance != null && (mouseLongDistance ?? longDistBaseline) is bool ld) longDistance.IsOn = ld;
                 }
 
                 return new SensorEditorRefs(
@@ -743,13 +752,14 @@ public sealed partial class MainWindow : Window
                         int respVal = Integer(response);
                         int? angleVal = angle != null ? (angle.IsOn ? 1 : 0) : null;
                         int? rippleVal = ripple != null ? (ripple.IsOn ? 1 : 0) : null;
+                        bool? longDistVal = longDistance != null ? longDistance.IsOn : null;
 
-                        _ = ApplyEngineAndPollingAsync(pollId, modeVal, motionVal, lodVal, respVal, angleVal, rippleVal, engineCurrent);
+                        _ = ApplyEngineAndPollingAsync(pollId, modeVal, motionVal, lodVal, respVal, angleVal, rippleVal, longDistVal, engineCurrent);
                     },
                     Revert);
             }
 
-            async Task ApplyEngineAndPollingAsync(byte pollId, int? modeVal, int? motionVal, int? lodVal, int respVal, int? angleVal, int? rippleVal, TextBlock? engineCurrent)
+            async Task ApplyEngineAndPollingAsync(byte pollId, int? modeVal, int? motionVal, int? lodVal, int respVal, int? angleVal, int? rippleVal, bool? longDistVal, TextBlock? engineCurrent)
             {
                 engineStatus.Text = "正在写入并校验设备参数…";
                 try
@@ -771,8 +781,14 @@ public sealed partial class MainWindow : Window
                         if (respVal != beforeSensor.Response) d.SetSensorValue("Response", respVal);
                         if (angleVal is int av && av != beforeSensor.Angle) d.SetSensorValue("Angle", av);
                         if (rippleVal is int rv && rv != beforeSensor.Ripple) d.SetSensorValue("Ripple", rv);
+                        if (longDistVal is bool ld && d.TryReadLongDistanceMode() != ld)
+                        {
+                            d.SetLongDistanceMode(ld);
+                            if (d.TryReadLongDistanceMode() is bool actualLd && actualLd != ld)
+                                throw new IOException("远距离抗干扰模式读回不一致");
+                        }
 
-                        return (State: d.ReadState(), Sensor: d.ReadSensor());
+                        return (State: d.ReadState(), Sensor: d.ReadSensor(), LongDistance: d.TryReadLongDistanceMode());
                     });
 
                     controller.UpdateObservedMouseState(result.State, endpoint!.Path);
@@ -780,6 +796,7 @@ public sealed partial class MainWindow : Window
                     mouseSensorPath = endpoint!.Path;
                     mouseSensorProfile = result.State.Profile;
                     mouseSensorReadAt = DateTime.Now;
+                    mouseLongDistance = result.LongDistance;
                     if (engineCurrent != null && result.Sensor.Mode is >= 0 and <= 2)
                         engineCurrent.Text = "当前引擎：" + new[] { "办公模式", "游戏模式", "超感竞技模式" }[result.Sensor.Mode];
                     engineStatus.Text = $"已应用并读回确认 · {PollingName(result.State.PollingId)} · {mouseSensorReadAt:HH:mm:ss}";
@@ -802,7 +819,7 @@ public sealed partial class MainWindow : Window
                             return Task.CompletedTask;
                         }
                         byte pollId = (byte)Id(polling);
-                        return ApplyEngineAndPollingAsync(pollId, null, null, null, mouseSensor?.Response ?? 0, null, null, null);
+                        return ApplyEngineAndPollingAsync(pollId, null, null, null, mouseSensor?.Response ?? 0, null, null, null, null);
                     }, true),
                     Button("还原", () =>
                     {
@@ -852,15 +869,53 @@ public sealed partial class MainWindow : Window
         var kbSleep = Number("休眠时间（秒，0 为关闭）", 0, 0, 65535, 1);
         kbSleep.IsEnabled = false;
         var kbContent = Column();
+        var kbExtraHost = Column();
+        var kbExtraCard = Card("高级按键功能", kbExtraHost);
+        kbExtraCard.Visibility = Visibility.Collapsed;
+
+        void RenderKbExtra(bool? socd, (bool WinLocked, bool MacMode)? winMac)
+        {
+            kbExtraHost.Children.Clear();
+            if (winMac is { } wm)
+                kbExtraHost.Children.Add(Text($"系统模式：{(wm.MacMode ? "Mac" : "Windows")} · Win 键锁定：{(wm.WinLocked ? "已锁定" : "正常")}", 12));
+            if (socd is bool socdOn)
+            {
+                var socdStatus = Text("开启后可优先触发后按方向键（立停）。", 12);
+                var socdToggle = new ToggleSwitch { Header = "SOCD 后按优先（立停）", IsOn = socdOn, OnContent = "开启", OffContent = "关闭" };
+                kbExtraHost.Children.Add(socdToggle);
+                kbExtraHost.Children.Add(socdStatus);
+                kbExtraHost.Children.Add(Button("应用 SOCD 设置", async () =>
+                {
+                    bool target = socdToggle.IsOn;
+                    socdStatus.Text = "正在写入 SOCD 设置…";
+                    await KeyWrite(d =>
+                    {
+                        d.SetSocd(target);
+                        if (d.TryReadSocd() is bool actual && actual != target)
+                            throw new IOException("SOCD 读回不一致");
+                    });
+                    socdStatus.Text = $"SOCD 已设为{(target ? "开启" : "关闭")} · {DateTime.Now:HH:mm:ss}";
+                }, true));
+            }
+            kbExtraCard.Visibility = kbExtraHost.Children.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        async Task ReadKbPerformanceAsync()
+        {
+            var kbState = await WithKeyboard(d => (Sleep: d.SleepSeconds(), Socd: d.TryReadSocd(), WinMac: d.TryReadWinMacState()));
+            kbSleep.Value = kbState.Sleep;
+            kbSleep.IsEnabled = true;
+            kbPowerStatus.Text = $"已读取休眠时间 · {DateTime.Now:HH:mm:ss}";
+            RenderKbExtra(kbState.Socd, kbState.WinMac);
+        }
+
         kbContent.Children.Add(kbSleep);
         kbContent.Children.Add(kbPowerStatus);
         kbContent.Children.Add(Row(
             Button("重新读取休眠时间", async () =>
             {
                 kbPowerStatus.Text = "正在读取休眠时间…";
-                kbSleep.Value = await WithKeyboard(d => d.SleepSeconds());
-                kbSleep.IsEnabled = true;
-                kbPowerStatus.Text = $"已读取休眠时间 · {DateTime.Now:HH:mm:ss}";
+                await ReadKbPerformanceAsync();
             }),
             Button("应用休眠设置", async () =>
             {
@@ -873,12 +928,8 @@ public sealed partial class MainWindow : Window
             }, true)));
         var kbPowerCard = Card("电源管理", kbContent);
         body.Children.Add(kbPowerCard);
-        ReadPageOnLoad(kbPowerCard, body, async () =>
-        {
-            kbSleep.Value = await WithKeyboard(d => d.SleepSeconds());
-            kbSleep.IsEnabled = true;
-            kbPowerStatus.Text = $"已读取休眠时间 · {DateTime.Now:HH:mm:ss}";
-        }, "已读取休眠时间");
+        body.Children.Add(kbExtraCard);
+        ReadPageOnLoad(kbPowerCard, body, ReadKbPerformanceAsync, "已读取休眠时间");
     }
 
     sealed record SensorEditorRefs(Action Apply, Action Revert);

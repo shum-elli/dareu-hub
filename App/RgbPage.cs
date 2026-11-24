@@ -323,10 +323,28 @@ public sealed partial class MainWindow
             Button("取消选择", () => { selected.Clear(); foreach (var b in buttons.Values) b.IsChecked = false; status.Text = "已取消选择"; return Task.CompletedTask; }),
             Button("清空画布颜色", () => { Array.Clear(frame.Colors); UpdateColors(); QueueLiveRgbFrame(frame); status.Text = "已清空全部按键颜色"; return Task.CompletedTask; }));
 
+        var presetButtons = RgbPresets.All.Select(preset =>
+        {
+            var btn = Button(preset.Name, () =>
+            {
+                var generated = RgbPresets.Generate(rows, cols, preset.Id);
+                Array.Copy(generated.Colors, frame.Colors, frame.Colors.Length);
+                UpdateColors();
+                QueueLiveRgbFrame(frame);
+                status.Text = $"已应用主题预设：{preset.Name}";
+                return Task.CompletedTask;
+            });
+            btn.Padding = new Thickness(12, 6, 12, 6);
+            return (UIElement)btn;
+        }).ToArray();
+        var presetRow = Row(new UIElement[] { Text("一键主题预设：", 12) }.Concat(presetButtons).ToArray());
+        presetRow.VerticalAlignment = VerticalAlignment.Center;
+
         var slot = Choices("自定义灯光槽位", Enumerable.Range(1, 5).Select(i => new Choice(i, $"自定义 {i}")), 1);
         body.Children.Add(Card("按键颜色",
             toolMode,
             liveSync,
+            presetRow,
             new Viewbox { Child = canvas, Stretch = Stretch.Uniform, MaxHeight = 330 },
             status,
             zoneRow,
@@ -421,7 +439,8 @@ public sealed partial class MainWindow
             new Choice(0, "整板亮度律动"),
             new Choice(1, "音量条"),
             new Choice(2, "频谱柱状图"),
-            new Choice(3, "彩虹频谱")
+            new Choice(3, "彩虹频谱"),
+            new Choice(4, "中央对称律动")
         }, musicMode);
         var color = new ColorPicker { IsAlphaEnabled = false, Color = musicColor, MaxWidth = 360 };
         var gain = new Slider { Header = "灵敏度", Minimum = 1, Maximum = 60, Value = musicGain, StepFrequency = 1,

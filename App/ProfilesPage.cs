@@ -182,7 +182,21 @@ public sealed partial class MainWindow
     {
         if (IsMouse)
             return await WithMouse(d => { var state = d.ReadState(); var sensor = d.ReadSensor(); var buttons = Enumerable.Range(1, d.Endpoint.Product!.ButtonCount).Select(d.ReadButton).ToArray(); var keyData = Enumerable.Range(1, d.Endpoint.Product!.ButtonCount).Select(i => d.ReadMemory((ushort)(256 + 32 * (i - 1)), 32)).ToArray(); var macros = Enumerable.Range(1, d.Endpoint.Product!.ButtonCount).ToDictionary(i => i, d.ReadMacroRaw); return new DeviceBackup(2, "Mouse", d.Endpoint.Product!.Pid, state.Profile, state, sensor, buttons, keyData, null, null, state.SleepSeconds, macros); });
-        return await WithKeyboard(d => { var state = d.ReadState(); var keys = new List<KeyBackup>(); foreach (var key in keyLayout) for (byte layer = 0; layer < 2; layer++) keys.Add(new(key.Id, layer, d.ReadAssignment(key.Id, layer))); var macros = d.MacroIds().ToDictionary(i => (int)i, i => d.ReadMacroRaw(i)); return new DeviceBackup(2, "Keyboard", state.Pid, state.Profile, null, null, null, null, keys, d.ReadLights(), d.SleepSeconds(), macros); });
+        return await WithKeyboard(d =>
+        {
+            var state = d.ReadState();
+            var ids = keyLayout.Select(k => k.Id).ToArray();
+            var layer0 = d.ReadAssignmentsBulk(ids, 0);
+            var layer1 = d.ReadAssignmentsBulk(ids, 1);
+            var keys = new List<KeyBackup>(ids.Length * 2);
+            for (int i = 0; i < ids.Length; i++)
+            {
+                keys.Add(new(ids[i], 0, layer0[i]));
+                keys.Add(new(ids[i], 1, layer1[i]));
+            }
+            var macros = d.MacroIds().ToDictionary(i => (int)i, i => d.ReadMacroRaw(i));
+            return new DeviceBackup(2, "Keyboard", state.Pid, state.Profile, null, null, null, null, keys, d.ReadLights(), d.SleepSeconds(), macros);
+        });
     }
 
     Task SaveAutomatic(DeviceBackup backup)
@@ -343,7 +357,7 @@ public sealed partial class MainWindow
 
     void SettingsPage(StackPanel body)
     {
-        string versionStr = typeof(App).Assembly.GetName().Version?.ToString(3) ?? "0.9.0";
+        string versionStr = typeof(App).Assembly.GetName().Version?.ToString(3) ?? "1.0.0";
         var updateStatus = Text("仅在点击按钮时向 GitHub 查询最新版本，平时完全离线运行。", 12);
 
         body.Children.Add(Card("Dareu Local " + versionStr,
@@ -444,9 +458,22 @@ public sealed partial class MainWindow
             Text("读取版本信息不会升级或修改固件。固件更新请使用对应型号官方工具。"),
             ActionButton("读取当前固件版本", async () =>
             {
-                int version = IsMouse ? await WithMouse(d => d.Firmware()) : await WithKeyboard(d => d.Firmware());
-                AddLog("固件版本：" + version.ToString("X6"));
-                var dialog = new ContentDialog { XamlRoot = Root.XamlRoot, Title = "当前固件版本", Content = version.ToString("X6"), CloseButtonText = "关闭", RequestedTheme = Root.RequestedTheme };
+                string message;
+                if (IsMouse)
+                {
+                    var fw = await WithMouse(d => (MouseFw: d.Firmware(), DongleFw: d.TryReadDongleFirmware()));
+                    message = fw.DongleFw is int dfw
+                        ? $"鼠标固件：{fw.MouseFw:X6}\n2.4G 接收器固件：{dfw:X4}"
+                        : $"鼠标固件：{fw.MouseFw:X6}";
+                    AddLog("固件版本：" + message.Replace("\n", " · "));
+                }
+                else
+                {
+                    int version = await WithKeyboard(d => d.Firmware());
+                    message = $"键盘固件：{version:X6}";
+                    AddLog("固件版本：" + version.ToString("X6"));
+                }
+                var dialog = new ContentDialog { XamlRoot = Root.XamlRoot, Title = "当前固件版本", Content = message, CloseButtonText = "关闭", RequestedTheme = Root.RequestedTheme };
                 await dialog.ShowAsync();
             })));
 

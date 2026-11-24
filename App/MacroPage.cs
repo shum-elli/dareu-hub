@@ -35,17 +35,38 @@ public sealed partial class MainWindow
             name,
             Text("每个按下动作都需要对应的松开动作。延时位于当前动作之后；写入前会检查完整性。"),
             list,
-            Row(stepDelayBox, Button("更新此步延时", () =>
-            {
-                int i = list.SelectedIndex;
-                if (i < 0 || i >= macroActions.Count)
-                    throw new ArgumentException("请先在列表中选择一条动作");
-                macroActions[i] = macroActions[i] with { Delay = Integer(stepDelayBox) };
-                list.SelectedIndex = i;
-                return Task.CompletedTask;
-            })),
+            Row(stepDelayBox,
+                Button("更新此步延时", () =>
+                {
+                    int i = list.SelectedIndex;
+                    if (i < 0 || i >= macroActions.Count)
+                        throw new ArgumentException("请先在列表中选择一条动作");
+                    macroActions[i] = macroActions[i] with { Delay = Integer(stepDelayBox) };
+                    list.SelectedIndex = i;
+                    return Task.CompletedTask;
+                }),
+                Button("批量设为统一延时", () =>
+                {
+                    if (macroActions.Count == 0)
+                        throw new ArgumentException("当前宏动作列表为空");
+                    int uniform = Integer(stepDelayBox);
+                    for (int i = 0; i < macroActions.Count; i++)
+                        macroActions[i] = macroActions[i] with { Delay = uniform };
+                    return Task.CompletedTask;
+                })),
             action, key, button, delay,
-            Button("添加动作", () => { int i = Id(action); macroActions.Add(new(kinds[i], i < 2 ? Id(key) : Id(button), Integer(delay))); return Task.CompletedTask; }),
+            Row(
+                Button("添加动作", () => { int i = Id(action); macroActions.Add(new(kinds[i], i < 2 ? Id(key) : Id(button), Integer(delay))); return Task.CompletedTask; }),
+                Button("添加完整点击（按下 + 松开）", () =>
+                {
+                    int i = Id(action);
+                    bool isM = i >= 2;
+                    int code = isM ? Id(button) : Id(key);
+                    int d = Integer(delay);
+                    macroActions.Add(new(isM ? "MouseDown" : "KeyDown", code, d));
+                    macroActions.Add(new(isM ? "MouseUp" : "KeyUp", code, d));
+                    return Task.CompletedTask;
+                })),
             Row(
                 Button("删除选中", () => { if (list.SelectedIndex >= 0) macroActions.RemoveAt(list.SelectedIndex); return Task.CompletedTask; }),
                 Button("上移", () => { int i = list.SelectedIndex; if (i > 0) { macroActions.Move(i, i - 1); list.SelectedIndex = i - 1; } return Task.CompletedTask; }),

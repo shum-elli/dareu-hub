@@ -22,7 +22,7 @@ public static class AudioFramePainter
 
     public static RgbMatrix PaintSpectrum(int rows, int columns, double[] bands, int mode, byte[] color, double brightness)
     {
-        if (bands == null || color.Length != 3 || mode < 0 || mode > 3 || !double.IsFinite(brightness))
+        if (bands == null || color.Length != 3 || mode < 0 || mode > 4 || !double.IsFinite(brightness))
             throw new ArgumentException("音频灯光参数无效");
         brightness = Math.Clamp(brightness, 0, 1);
 
@@ -44,20 +44,36 @@ public static class AudioFramePainter
         }
 
         var pixels = new byte[rows * columns * 3];
+        double center = (columns - 1) / 2.0;
+
         for (int col = 0; col < columns; col++)
         {
             double band = 0;
+            double distNorm = columns <= 1 ? 0 : Math.Abs(col - center) / Math.Max(1.0, center);
+
             if (bands.Length > 0)
             {
-                int index = bands.Length == columns
-                    ? col
-                    : Math.Clamp((int)Math.Floor((double)col * bands.Length / Math.Max(1, columns)), 0, bands.Length - 1);
+                int index = mode == 4
+                    ? Math.Clamp((int)Math.Floor(distNorm * bands.Length), 0, bands.Length - 1)
+                    : bands.Length == columns
+                        ? col
+                        : Math.Clamp((int)Math.Floor((double)col * bands.Length / Math.Max(1, columns)), 0, bands.Length - 1);
                 band = double.IsFinite(bands[index]) ? Math.Clamp(bands[index], 0, 1) : 0;
             }
 
             byte baseR = color[0], baseG = color[1], baseB = color[2];
             if (mode == 3)
+            {
                 (baseR, baseG, baseB) = HsvToRgb(360.0 * col / Math.Max(1, columns), 1.0, 1.0);
+            }
+            else if (mode == 4)
+            {
+                // Symmetric blend from selected center color toward cool cyan/violet at outer edges.
+                double edgeMix = Math.Clamp(distNorm * 0.75, 0, 0.75);
+                baseR = (byte)Math.Clamp(Math.Round(baseR * (1 - edgeMix) + 60 * edgeMix), 0, 255);
+                baseG = (byte)Math.Clamp(Math.Round(baseG * (1 - edgeMix) + 190 * edgeMix), 0, 255);
+                baseB = (byte)Math.Clamp(Math.Round(baseB * (1 - edgeMix) + 255 * edgeMix), 0, 255);
+            }
 
             for (int row = 0; row < rows; row++)
             {
@@ -74,7 +90,7 @@ public static class AudioFramePainter
         return result;
     }
 
-    static (byte R, byte G, byte B) HsvToRgb(double hue, double saturation, double value)
+    internal static (byte R, byte G, byte B) HsvToRgb(double hue, double saturation, double value)
     {
         hue = ((hue % 360) + 360) % 360;
         double c = value * saturation;

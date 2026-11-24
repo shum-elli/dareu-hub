@@ -42,9 +42,10 @@ public sealed partial class MainWindow
         var layer = new RadioButtons { ItemsSource = new[] { "标准模式", "Fn 模式" }, MaxColumns = 2, SelectedIndex = 0,
             Visibility = isMouse ? Visibility.Collapsed : Visibility.Visible };
         var functions = new[] { new Choice(6, "键盘按键 / 快捷键"), new Choice(1, "鼠标功能"), new Choice(8, "多媒体"),
-            new Choice(12, "宏"), new Choice(0, "禁用"), new Choice(2, "双击左键"), new Choice(19, "DPI 循环"),
-            new Choice(16, "DPI 增加"), new Choice(17, "DPI 减少"), new Choice(27, "切换配置"), new Choice(30, "切换灯光"), new Choice(47, "锁定 Win 键") };
-        var allowed = functions.Where(x => (isMouse ? x.Id != 47 : x.Id is not (16 or 17 or 19)) &&
+            new Choice(12, "宏"), new Choice(0, "禁用"), new Choice(2, "双击左键"), new Choice(3, "左键连发"),
+            new Choice(19, "DPI 循环"), new Choice(16, "DPI 增加"), new Choice(17, "DPI 减少"), new Choice(22, "狙击键"),
+            new Choice(59, "切换回报率"), new Choice(34, "横向滚轮"), new Choice(27, "切换配置"), new Choice(30, "切换灯光"), new Choice(47, "锁定 Win 键") };
+        var allowed = functions.Where(x => (isMouse ? x.Id != 47 : x.Id is not (3 or 16 or 17 or 19 or 22 or 34 or 59)) &&
             (x.Id != 30 || owner?.Product?.HasLighting == true));
         var type = Choices("功能分类", allowed);
         var keyCode = Choices("目标按键", HidKeys());
@@ -62,11 +63,14 @@ public sealed partial class MainWindow
         var macroLoopMode = Choices("宏触发模式", new[] { new Choice(12, "重复指定次数"), new Choice(13, "按住时循环"), new Choice(14, "点击开关循环"), new Choice(15, "松开后停止") }, 12);
         var slot = Number("宏槽位", 1, 1, isMouse ? 6 : 16);
         var repeat = Number("重复次数", 1, 1, 250);
+        var turboInterval = Number("连发间隔 (ms)", 50, 10, 255, 5);
+        var sniperDpi = Number("狙击目标 DPI（步进 50）", 400, 100, 12800, 50);
+        var horizWheel = Choices("横向滚轮方向", new[] { new Choice(1, "向左滚动"), new Choice(2, "向右滚动") }, 1);
         var ctrl = new CheckBox { Content = "Ctrl" }; var shift = new CheckBox { Content = "Shift" };
         var alt = new CheckBox { Content = "Alt" }; var win = new CheckBox { Content = "Win" };
         var mods = Row(ctrl, shift, alt, win);
         var fields = Column(8);
-        foreach (var element in new UIElement[] { keyRow, mouseCode, media, macroLoopMode, slot, repeat }) fields.Children.Add(element);
+        foreach (var element in new UIElement[] { keyRow, mouseCode, media, macroLoopMode, slot, repeat, turboInterval, sniperDpi, horizWheel }) fields.Children.Add(element);
         Func<Task>? undo = null;
         Button save = null!;
         Button undoButton = null!;
@@ -91,10 +95,13 @@ public sealed partial class MainWindow
             keyRow.Visibility = mods.Visibility = f == 6 ? Visibility.Visible : Visibility.Collapsed;
             mouseCode.Visibility = f == 1 ? Visibility.Visible : Visibility.Collapsed;
             media.Visibility = f == 8 ? Visibility.Visible : Visibility.Collapsed;
-            macroLoopMode.Visibility = !isMouse && f == 12 ? Visibility.Visible : Visibility.Collapsed;
+            macroLoopMode.Visibility = f == 12 ? Visibility.Visible : Visibility.Collapsed;
             slot.Visibility = f == 12 ? Visibility.Visible : Visibility.Collapsed;
-            bool showRepeat = f == 12 && (isMouse || macroLoopMode.SelectedItem is not Choice mc || mc.Id == 12);
+            bool showRepeat = f == 12 && (macroLoopMode.SelectedItem is not Choice mc || mc.Id == 12);
             repeat.Visibility = showRepeat ? Visibility.Visible : Visibility.Collapsed;
+            turboInterval.Visibility = isMouse && f == 3 ? Visibility.Visible : Visibility.Collapsed;
+            sniperDpi.Visibility = isMouse && f == 22 ? Visibility.Visible : Visibility.Collapsed;
+            horizWheel.Visibility = isMouse && f == 34 ? Visibility.Visible : Visibility.Collapsed;
             if (isMouse) { slot.Header = "宏槽位（跟随所选按键）"; slot.Value = selected; slot.IsEnabled = false; }
             if (save != null) save.IsEnabled = f >= 0;
         }
@@ -225,25 +232,21 @@ public sealed partial class MainWindow
                     int total = keyLayout.Count;
                     int done = 0;
                     batchStatus.Text = $"正在读取键位映射（0/{total}）…";
-                    foreach (var chunk in keyLayout.Chunk(12))
+                    foreach (var chunk in keyLayout.Chunk(21))
                     {
                         if (!Here() || ct.IsCancellationRequested || layer.SelectedIndex != targetLayer)
                             return;
-                        var batch = await WithKeyboard(d =>
+                        var ids = chunk.Select(k => k.Id).ToArray();
+                        var values = await WithKeyboard(d =>
                         {
-                            var items = new List<(byte Id, Assignment Value)>(chunk.Length);
-                            foreach (var k in chunk)
-                            {
-                                ct.ThrowIfCancellationRequested();
-                                items.Add((k.Id, d.ReadAssignment(k.Id, (byte)targetLayer)));
-                            }
-                            return items;
+                            ct.ThrowIfCancellationRequested();
+                            return d.ReadAssignmentsBulk(ids, (byte)targetLayer);
                         }, ct);
                         if (!Here() || ct.IsCancellationRequested || layer.SelectedIndex != targetLayer)
                             return;
-                        foreach (var (id, val) in batch)
-                            ApplyKeyboardVisualBadge(id, val, (byte)targetLayer);
-                        done += batch.Count;
+                        for (int idx = 0; idx < ids.Length && idx < values.Length; idx++)
+                            ApplyKeyboardVisualBadge(ids[idx], values[idx], (byte)targetLayer);
+                        done += ids.Length;
                         batchStatus.Text = done < total
                             ? $"正在读取键位映射（{done}/{total}）…"
                             : $"已同步全部 {total} 个键位（{(targetLayer == 0 ? "标准层" : "Fn 层")}）";
@@ -272,10 +275,33 @@ public sealed partial class MainWindow
                     current.Text = "当前映射：" + DescribeMouse(raw);
                     original.Text = "";
                     ApplyMouseVisualBadge(key, raw);
-                    int f = raw[0] switch { 0 => 0, 1 => 1, 2 => raw[1] switch { 1 => 19, 2 => 16, 3 => 17, _ => -1 }, 4 when raw[2] == 2 => 2, 6 => 12, 8 => 30, 9 => 27, _ => -1 };
+                    int f = raw[0] switch
+                    {
+                        0 => 0,
+                        1 => 1,
+                        2 => raw[1] switch { 1 => 19, 2 => 16, 3 => 17, _ => -1 },
+                        3 => 34,
+                        4 when raw[2] == 2 => 2,
+                        4 => 3,
+                        6 => 12,
+                        7 => 59,
+                        8 => 30,
+                        9 => 27,
+                        10 => 22,
+                        _ => -1
+                    };
                     Choose(type, f);
                     if (f == 1) { int id = Array.IndexOf(new byte[] { 1, 2, 4, 8, 16 }, raw[1]) + 1; Choose(mouseCode, id); if (id == 0) type.SelectedItem = null; }
-                    if (f == 12) { slot.Value = key; repeat.Value = raw[2]; }
+                    if (f == 3) { turboInterval.Value = Math.Clamp((int)raw[1], 10, 255); }
+                    if (f == 22) { sniperDpi.Value = Math.Clamp(JmMouse.DecodeSniperDpi(raw[1]), 100, 12800); }
+                    if (f == 34) { Choose(horizWheel, raw[1] == 2 ? 2 : 1); }
+                    if (f == 12)
+                    {
+                        slot.Value = key;
+                        int modeId = raw[2] switch { 254 => 13, 253 => 14, 255 => 15, _ => 12 };
+                        Choose(macroLoopMode, modeId);
+                        if (modeId == 12) repeat.Value = Math.Clamp((int)raw[2], 1, 250);
+                    }
                     // Existing shortcut blobs can contain combinations not represented by this editor.
                     if (f < 0) current.Text += "；选择功能分类可重新设置。";
                 }
@@ -338,8 +364,9 @@ public sealed partial class MainWindow
                 {
                     if (Integer(slot) != b)
                         throw new ArgumentException("鼠标宏槽位与按键一一对应，请把目标槽位设为当前按键编号 " + b);
-                    int times = Integer(repeat);
-                    await MouseWrite(d => d.BindMacro(b, times));
+                    int modeId = macroLoopMode.SelectedItem is Choice mc ? mc.Id : 12;
+                    int repeatsOrMode = modeId switch { 13 => 254, 14 => 253, 15 => 255, _ => Integer(repeat) };
+                    await MouseWrite(d => d.BindMacro(b, repeatsOrMode));
                 }
                 else
                 {
@@ -348,9 +375,15 @@ public sealed partial class MainWindow
                         0 => new byte[3],
                         1 => new byte[] { 1, (byte)(1 << (Id(mouseCode) - 1)), 0 },
                         2 => new byte[] { 4, 10, 2 },
+                        3 => JmMouse.EncodeTurboButton(Integer(turboInterval)),
                         19 => new byte[] { 2, 1, 0 },
                         16 => new byte[] { 2, 2, 0 },
                         17 => new byte[] { 2, 3, 0 },
+                        22 => JmMouse.EncodeSniperDpi(Integer(sniperDpi) is var dpi && dpi % 50 == 0
+                            ? dpi
+                            : throw new ArgumentException("狙击目标 DPI 需为 50 的整数倍（100–12800）")),
+                        34 => new byte[] { 3, (byte)(Id(horizWheel) == 2 ? 2 : 1), 0 },
+                        59 => new byte[] { 7, 0, 0 },
                         27 => new byte[] { 9, 0, 0 },
                         30 => new byte[] { 8, 4, 0 },
                         _ => throw new ArgumentException("鼠标不支持此功能")
@@ -521,8 +554,23 @@ public sealed partial class MainWindow
     }
     static string DescribeMouse(byte[] data) => data[0] switch
     {
-        0 => "禁用", 1 => MouseName(Array.IndexOf(new byte[] { 1, 2, 4, 8, 16 }, data[1]) + 1),
+        0 => "禁用",
+        1 => MouseName(Array.IndexOf(new byte[] { 1, 2, 4, 8, 16 }, data[1]) + 1),
         2 => data[1] switch { 1 => "DPI 循环", 2 => "DPI 增加", 3 => "DPI 减少", _ => "DPI 功能" },
-        4 => "双击 / 连点", 5 => "快捷键 / 多媒体", 6 => $"宏槽位 {data[1] + 1} · {data[2]} 次", 8 => "切换灯光", 9 => "切换配置", _ => "设备功能 · " + Convert.ToHexString(data)
+        3 => data[1] == 2 ? "横向向右滚动" : "横向向左滚动",
+        4 => data[2] == 2 ? "双击左键" : $"左键连发 · {data[1]} ms",
+        5 => "快捷键 / 多媒体",
+        6 => data[2] switch
+        {
+            254 => $"宏槽位 {data[1] + 1} · 按住循环",
+            253 => $"宏槽位 {data[1] + 1} · 开关循环",
+            255 => $"宏槽位 {data[1] + 1} · 松开停止",
+            _ => $"宏槽位 {data[1] + 1} · {data[2]} 次"
+        },
+        7 => "切换回报率",
+        8 => "切换灯光",
+        9 => "切换配置",
+        10 => $"狙击键 · {JmMouse.DecodeSniperDpi(data[1])} DPI",
+        _ => "设备功能 · " + Convert.ToHexString(data)
     };
 }
